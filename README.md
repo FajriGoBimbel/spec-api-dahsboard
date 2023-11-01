@@ -207,7 +207,7 @@ Request :
 {
   "mataPelajaran": "string",
   "singkatan": "string",
-  "utbk": "boolean",
+  "isUtbk": "boolean",
   "status": "string"
 }
 ```
@@ -229,7 +229,7 @@ Response :
 Request :
 
 - Method : PUT
-- Endpoint : `/api/v1/mapel`,
+- Endpoint : `/api/v1/mapel/${params.idMapel}`,
 - Header : null
 - Body :
 
@@ -259,7 +259,7 @@ Response :
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/mapel/${params.page/${params.search}}`,
+- Endpoint : `/api/v1/mapel/${params.page}/${params.search}`,
 - Header : null
 - Body : null
 
@@ -272,7 +272,7 @@ Response :
       "id": "string",
       "mataPelajaran": "string",
       "singkatan": "string",
-      "utbk": "boolean",
+      "isUtbk": "boolean",
       "status": "string",
       "createdAt": "date",
       "updatedAt": "date"
@@ -281,6 +281,58 @@ Response :
   "count": "number",
   "page": "number",
 
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL MATA PELAJARAN
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/mapel/${params.idMapel}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": {
+    "id": "string",
+    "mataPelajaran": "string",
+    "singkatan": "string",
+    "isUtbk": "boolean",
+    "status": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## DELETE BY ID MATA PELAJARAN
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/mapel/${params.idMapel}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
   "meta": {
     "code": "number",
     "message": "string",
@@ -392,9 +444,43 @@ Response :
 }
 ```
 
+## GET DETAIL KURIKULUM
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/kurikulum/${params.idKurikulum}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": {
+    "id": "string",
+    "namKurikulum": "string",
+    "singkatan": "string",
+    "tahunTerbit": "string, date",
+    "tanggalAwal": "string, date",
+    "tanggalAkhir": "string, date",
+    "status": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
 ### BAB
 
-## GET UPLINE WITH BY MAPEL
+<!--
+## GET LIST BAB BERDASARKAN MAPEL
 
 Request :
 
@@ -426,7 +512,7 @@ Response :
     "status": "string"
   }
 }
-```
+``` -->
 
 ## TAMBAH BAB
 
@@ -439,8 +525,11 @@ Request :
 
 ```json
 {
+  "kurikulum": "string",
+  "tingkatKelas": "string",
+  "namSekolahKelas": "string",
   "mataPelajaran": "string, mandatory",
-  "upline": "string, mandatory",
+  "bab": "string, mandatory",
   "kodeBab": "string, mandatory",
   "namBab": "string, mandatory",
   "peluang": "string, mandatory" // sering, normal, jarang
@@ -470,12 +559,14 @@ Request :
 
 ```json
 {
+  "kurikulum": "string",
+  "tingkatKelas": "string",
+  "namSekolahKelas": "string",
   "mataPelajaran": "string, mandatory",
-  "upline": "string, mandatory",
+  "bab": "string, mandatory",
   "kodeBab": "string, mandatory",
   "namBab": "string, mandatory",
-  "peluang": "string, mandatory",
-  "status": "string"
+  "peluang": "string, mandatory" // sering, normal, jarang
 }
 ```
 
@@ -496,7 +587,47 @@ Response :
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/bab/${params.page/${params.search}}`,
+- Endpoint : `/api/v1/bab/${params.page}/${params.search}/${params.mapel}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "namaBab": "string",
+      "peluang": "string",
+      "status": "string",
+      "subBab": [
+        {
+          "id": "string",
+          "namSubBab": "string"
+        }
+      ],
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
+  ],
+  "count": "number",
+  "page": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL BAB
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bab/${params.idBab}`,
 - Header : null
 - Body : null
 
@@ -576,7 +707,7 @@ Request :
   "data": [
     {
       "id": "string, unique",
-      "tingkatKelas": "string"
+      "tingkatKelas": "string" // cth 12 SMA IPS
     }
   ],
   "meta": {
@@ -587,7 +718,7 @@ Request :
 }
 ```
 
-## GET Layanan
+## GET Layanan/JENIS KELAS
 
 Request :
 
@@ -641,7 +772,126 @@ Request :
 }
 ```
 
-## MATA AJAR
+## TAMBAH SILABUS
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/silabus`,
+- Header : null
+- Body :
+
+```json
+{
+  "tahunAjaran": "string",
+  "kurikulum": "string",
+  "tingkatKelas": "string",
+  "jenisLayanan": "string",
+  "kelompokUjian": "string",
+  "jumlahPertemuan": "number",
+  "semester": "number",
+  "mataPelajaran": "string",
+  "pertemuan": "Array of obj"
+}
+```
+
+- Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET LIST SILABUS
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/silabus`,
+- Header : null
+- Body : null
+
+- Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "namSilabus": "string",
+      "namKurikulum": "string",
+      "tingkatKelas": "string",
+      "jenisLayanan": "string",
+      "namaKelompokUjian": "string",
+      "jumlahPertemuan": "number",
+      "jumlahEntri": "number",
+      "status": "string"
+    }
+  ],
+  "page": "number",
+  "count": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL SILABUS
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/silabus`,
+- Header : null
+- Body : null
+
+- Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "namSilabus": "string",
+      "namKurikulum": "string",
+      "tingkatKelas": "string",
+      "jenisLayanan": "string",
+      "namaKelompokUjian": "string",
+      "jumlahPertemuan": "number",
+      "jumlahEntri": "number",
+      "status": "string",
+      "pertemuan": [
+        {
+          "listBab": [
+            {
+              "id": "string",
+              "namadankodebab": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page": "number",
+  "count": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### MATA AJAR
 
 ## TAMBAH MATA AJAR
 
@@ -656,7 +906,7 @@ Request :
 {
   "mataAjar": "string",
   "singkatan": "string",
-  "upline": "string, date",
+  "upline": "string",
   "status": "string"
 }
 ```
@@ -708,7 +958,7 @@ Response :
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/mata-ajar/${params.page/${params.search}}`,
+- Endpoint : `/api/v1/mata-ajar/${params.page}/${params.search}`,
 - Header : null
 - Body : null
 
@@ -722,12 +972,6 @@ Response :
       "idBab": "number",
       "namaMataAjar": "string",
       "singkatan": "string",
-      "subBab": [
-        {
-          "id": "string",
-          "namSubBab": "string"
-        }
-      ],
       "status": "string",
       "createdAt": "date",
       "updatedAt": "date"
@@ -735,6 +979,37 @@ Response :
   ],
   "count": "number",
   "page": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL MATA AJAR
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/mata-ajar/${params.idMatAjar}}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": {
+    "id": "string",
+    "idBab": "number",
+    "namaMataAjar": "string",
+    "singkatan": "string",
+    "status": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
 
   "meta": {
     "code": "number",
@@ -780,14 +1055,15 @@ Request :
 Request :
 
 - Method : POST
-- Endpoint : `/api/v1/mata-ajar`,
+- Endpoint : `/api/v1/sumber-soal`,
 - Header : null
 - Body :
 
 ```json
 {
   "jenisSumber": "string",
-  "namaSumber": "string"
+  "namaSumber": "string",
+  "status": "string,
 }
 ```
 
@@ -815,7 +1091,8 @@ Request :
 ```json
 {
   "jenisSumber": "string",
-  "namaSumber": "string"
+  "namaSumber": "string",
+  "status": "string,
 }
 ```
 
@@ -847,15 +1124,9 @@ Response :
   "data": [
     {
       "id": "string",
-      "idBab": "number",
-      "namaMataAjar": "string",
-      "singkatan": "string",
-      "subBab": [
-        {
-          "id": "string",
-          "namSubBab": "string"
-        }
-      ],
+      "jenisSumber": "string",
+      "namaSumber": "string",
+      "detailTo": "number",
       "status": "string",
       "createdAt": "date",
       "updatedAt": "date"
@@ -864,6 +1135,315 @@ Response :
   "count": "number",
   "page": "number",
 
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL ISI KODE SUMBER
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/kode-sumber/${params.idSumberSoal}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "smt": "string",
+      "kodeSoal": "string",
+      "tahun": "date",
+      "tingkatKelas": "string",
+      "jenisInstitusi": "string",
+      "provinsi": "string",
+      "kota": "string",
+      "institusi": "string",
+      "status": "string",
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
+  ],
+  "count": "number",
+  "page": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### WACANA
+
+## GET LIST WACANA
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/wacana/${params.mapel}/${params.keywoard}/${params.judulWacana}`, <!-- PARAM AKTIF SETELAH PILIH MAPEL, JIKA TIDAK PILIH MAPEL GET ALL LIST -->
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "mataPelajaran": "string",
+      "judulWacana": "string",
+      "cuplikanTeks": "string",
+      "keyword": "string",
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
+  ],
+  "count": "number",
+  "page": "number",
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET DETAIL WACANA
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/wacana/${params.idWacana}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": {
+    "id": "string",
+    "judulWacana": "string",
+    "mataPelajaran": "string",
+    "cuplikanTeks": "string",
+    "keyword": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## TAMBAH WACANA
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/wacana`,
+- Header : null
+- Body :
+
+```json
+{
+  "cuplikanTeks": "string",
+  "judulWacana": "string",
+  "keyword": "string",
+  "mataPelajaran": "string"
+}
+```
+
+Response :
+
+```json
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## UPDATE WACANA
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/wacana/${params.idWacana}`,
+- Header : null
+- Body :
+
+```json
+{
+  "cuplikanTeks": "string",
+  "judulWacana": "string",
+  "keyword": "string",
+  "mataPelajaran": "string"
+}
+```
+
+Response :
+
+```json
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## HAPUS WACANA
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/wacana/${params.idWacana}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## UPLOAD VIDEO
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/wacana/${params.idWacana}`,
+- Header : null
+- Body :
+
+```json
+{
+  "ambilVideo": "string",
+  "judulVideo": "string",
+  "deskripsi": "string",
+  "keyword": "string",
+  "idSoal": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### KUNCI JAWABAN
+
+## GET JENIS PRODUK
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/jenis-produk`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "idProduk": "string",
+      "namaProduk": "string"
+    }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET KODE PAKET
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/kode-paket`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "idProduk": "string",
+      "namaPaket": "string"
+    }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET LIST KUNCI JAWABAN
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/kunci-jawaban/${params.jenisProduk}/${params.kelompokUjian}/${params.kodePaket}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "noUrut": "number",
+      "idSoal": "string",
+      "kelompokUjian": "string",
+      "bab": "string",
+      "kodeSumber": "string",
+      "tipeSoal": "string",
+      "level": "string",
+      "kunciJawaban": "string"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
