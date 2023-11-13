@@ -2399,28 +2399,26 @@ Response :
 #### get isi Buku
 
 
-### KUNCI JAWABAN
+## Kunci Jawaban
 
-## GET JENIS PRODUK
+### Jenis Produk
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/jenis-produk`,
+- Endpoint : `/api/v1/produk`
 - Header : null
-- Body : null
 
 Response :
 
 ```json
 {
-  "data": [
-    {
-      "idProduk": "string",
-      "namaProduk": "string"
-    }
-  ],
-
+  "data": {
+    "id": "number, unique",
+    "nama_produk": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
   "meta": {
     "code": "number",
     "message": "string",
@@ -2429,26 +2427,24 @@ Response :
 }
 ```
 
-## GET KODE PAKET
+### Kelompok Ujian
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/kode-paket`,
+- Endpoint : `/api/v1/kelompok-ujian`
 - Header : null
-- Body : null
 
 Response :
 
 ```json
 {
-  "data": [
-    {
-      "idProduk": "string",
-      "namaPaket": "string"
-    }
-  ],
-
+  "data": {
+    "id": "number, unique",
+    "nama_kelompok_ujian": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
   "meta": {
     "code": "number",
     "message": "string",
@@ -2457,35 +2453,24 @@ Response :
 }
 ```
 
-
-
-
-## GET LIST KUNCI JAWABAN
+### Kode Paket
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/kunci-jawaban/${params.jenisProduk}/${params.kelompokUjian}/${params.kodePaket}`,
+- Endpoint : `/api/v1/kode-paket`
 - Header : null
-- Body : null
 
 Response :
 
 ```json
 {
-  "data": [
-    {
-      "id": "string",
-      "noUrut": "number",
-      "idSoal": "string",
-      "kelompokUjian": "string",
-      "bab": "string",
-      "kodeSumber": "string",
-      "tipeSoal": "string",
-      "level": "string",
-      "kunciJawaban": "string"
-    }
-  ],
+  "data": {
+    "id": "number, unique",
+    "nama_kode_paket": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
   "meta": {
     "code": "number",
     "message": "string",
@@ -2493,3 +2478,46 @@ Response :
   }
 }
 ```
+
+### Tambah Kunci Jawaban
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/kunci-jawaban`
+- Header : null
+- Body :
+
+```json
+{
+  "id_jenis_produk": "number",
+  "id_kelompok_ujian": "number",
+  "id_kode_paket": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "data": {
+    "id_kunci_jawaban": "number, unique",
+    "no_urut": "string | number",
+    "id_soal": "string | number",
+    "kelompok_ujian": "string",
+    "bab": "string | number",
+    "kode_sumber": "string | number",
+    "tipe_soal": "string | number",
+    "level": "string | number",
+    "kunci_jawaban": "string | number",
+    "createdAt": "date",
+    "updatedAt": "date"
+  },
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
