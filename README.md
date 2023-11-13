@@ -2399,6 +2399,519 @@ Response :
 #### get isi Buku
 
 
+## BAH
+
+### Membuat BAH
+
+#### Get DataTabel BAH
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/datatabel?keyword={value}?page={value}?page_count={value}?per_page={value}?total_count={value}?sort={value}?order_by={value}?tahun_ajaran={value}?kurikulum={value}?tingkat_kelas={value}?jenislayanan={value}?kelompok_ujian={value}?`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id": "unique",
+            "kode_bah": "string, unique",
+            "semester": "number",
+            "tahunajaran": "string",
+            "jumlahpertemuan": "number",
+            "idjenislayanan": "unique",
+            "jenislayanan": "string",
+            "idkurikulum": "unique",
+            "kurikulum": "string",
+            "idtingkatkelas": "unique",
+            "tingkatkelas": "string",
+            "idkelompokujian": "unique",
+            "kelompokujian": "string",
+            "idsilabus": "unique",
+            "namasilabus": "string",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+    "metadata": {
+        "total_count": "number",
+        "page_count": "number",
+        "page": "number",
+        "per_page": "number",
+        "sort": "desc",
+        "order_by": "created_at",
+        "keyword": "string"
+    }
+}
+```
+
+#### Get Bah Bab 
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/bah-bab?id_bah={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "pertemuan": "number",
+            "kodebab": "string, unique",
+            "root": "string, unique",
+            "namabab": "string",
+            "upline": "number",
+            "child": "number"
+        },
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Get Bah Bab Silabus
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/bah-bab/silabus?id_bah={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "pertemuan": "number",
+            "kodebab": "string, unique",
+            "root": "string, unique",
+            "namabab": "string",
+            "upline": "number",
+            "child": "number"
+        },
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Get Bab Mapel
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/bab?mapel={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id": "unique",
+            "kode_bah": "string, unique",
+            "semester": "number",
+            "tahunajaran": "string",
+            "jumlahpertemuan": "number",
+            "idjenislayanan": "unique",
+            "jenislayanan": "string",
+            "idkurikulum": "unique",
+            "kurikulum": "string",
+            "idtingkatkelas": "unique",
+            "tingkatkelas": "string",
+            "idkelompokujian": "unique",
+            "kelompokujian": "string",
+            "idsilabus": "unique",
+            "namasilabus": "string",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Tambah Bah
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/bah`,
+- Header : null
+- Body : 
+```json
+{
+    "idsilabus": "string, unique",
+    "idjenislayanan": "unique",
+    "idkurikulum": "unique",
+    "idtingkatkelas": "unique",
+    "idkelompokujian": "unique",
+    "nama": "string",
+    "semester": "number",
+    "tahunajaran": "2023/2024",
+    "jumlahpertemuan": "number",
+    "detaildata": [
+        {
+            "pertemuan": "number",
+            "kodebab": "string, unique",
+            "root": "string, unique",
+            "namabab": "string",
+            "upline": "number",
+            "child": "number"
+        },
+    ],
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "idsilabus": "string, unique",
+            "idjenislayanan": "unique",
+            "idkurikulum": "unique",
+            "idtingkatkelas": "unique",
+            "idkelompokujian": "unique",
+            "nama": "string",
+            "semester": "number",
+            "tahunajaran": "2023/2024",
+            "jumlahpertemuan": "number",
+            "detaildata": [
+                {
+                    "pertemuan": "number",
+                    "kodebab": "string, unique",
+                    "root": "string, unique",
+                    "namabab": "string",
+                    "upline": "number",
+                    "child": "number"
+                },
+            ],
+        }
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Update Bah
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/bah/{id_bah}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "idsilabus": "string, unique",
+            "idjenislayanan": "unique",
+            "idkurikulum": "unique",
+            "idtingkatkelas": "unique",
+            "idkelompokujian": "unique",
+            "nama": "string",
+            "semester": "number",
+            "tahunajaran": "2023/2024",
+            "jumlahpertemuan": "number",
+            "detaildata": [
+                {
+                    "pertemuan": "number",
+                    "kodebab": "string, unique",
+                    "root": "string, unique",
+                    "namabab": "string",
+                    "upline": "number",
+                    "child": "number"
+                },
+            ],
+        }
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Delete Bah
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/bah/{id_bah}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+### Menautkan BAH
+
+#### Get DataTabel BAH Pemasangan
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/datatabel/list-pemasangan?keyword={value}?page={value}?page_count={value}?per_page={value}?total_count={value}?sort={value}?order_by={value}?tahun_ajaran={value}?semester={value}?tingkat_kelas={value}?kelas={value}?kelompok_ujian={value}?`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id": "unique",
+            "kode_bah": "string",
+            "semester": "number",
+            "tahunajaran": "string",
+            "jumlahpertemuan": "number",
+            "idjenislayanan": "unique",
+            "jenislayanan": "string",
+            "idkurikulum": "unique",
+            "kurikulum": "string",
+            "idtingkatkelas": "unique",
+            "tingkatkelas": "string",
+            "idkelompokujian": "unique",
+            "kelompokujian": "string",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+    "metadata": {
+        "total_count": "number",
+        "page_count": "number",
+        "page": "number",
+        "per_page": "number",
+        "sort": "desc",
+        "order_by": "created_at",
+        "keyword": "string"
+    }
+}
+```
+
+#### Get BAH Kelas
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/bah-kelas?tahun_ajaran={value}?semester={value}?tingkat_kelas={value}?kelas={value}?kelompok_ujian={value}?kurikulum={value}?jml_pertemuan={value}?id_jenis_layanan={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id": "unique",
+            "kode": "string",
+            "idkurikulum": "unique",
+            "kurikulum": "string",
+            "idjenislayanan": "unique",
+            "jenislayanan": "string",
+            "jumlahpertemuan": "number",
+            "cek": "number",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Tambah Pemasangan BAH Kelas
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/bah/bah-kelas`,
+- Header : null
+- Body : 
+
+```json
+{
+  "kelas": "270286",
+  "idbahs": [
+    9010
+  ],
+  "allidbahs": [
+    9010
+  ]
+}
+```
+
+Response :
+
+```json
+{
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+#### Delete Pemasangan BAH Kelas
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/bah/bah-kelas?kelas={value}?id_bah={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+    "meta": {
+        "code": "number",
+        "message": "string",
+        "status": "string"
+    }
+}
+```
+
+
+### Monitoring BAH
+
+#### Get DataTabel Monitoring BAH Kelas
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/datatabel/list-monitoring?keyword={value}?page={value}?page_count={value}?per_page={value}?total_count={value}?sort={value}?order_by={value}?tahun_ajaran={value}?gedung={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id_kelas": "unique",
+            "nama_kelas": "string",
+            "tingkat_kelas": "string",
+            "jenis_kelas": "REGULER",
+            "jumlah_bah": "number",
+            "status_bah": "13 BAH TERTAUT",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+    "metadata": {
+        "total_count": "number",
+        "page_count": "number",
+        "page": "number",
+        "per_page": "number",
+        "sort": "desc",
+        "order_by": "created_at",
+        "keyword": "string"
+    }
+}
+```
+
+
+#### Get DataTabel Monitoring BAH Kelas Detail
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/bah/datatabel/list-monitoring/detail?keyword={value}?page={value}?page_count={value}?per_page={value}?total_count={value}?sort={value}?order_by={value}?id_kelas={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+            "id": "unique",
+            "kode": "24.12.15.32.11.14-0001",
+            "semester": "number",
+            "tahunajaran": "string",
+            "jumlahpertemuan": "number",
+            "idjenislayanan": "unique",
+            "jenislayanan": "string",
+            "idkurikulum": "unique",
+            "kurikulum": "string",
+            "idtingkatkelas": "unique",
+            "tingkatkelas": "string",
+            "idkelompokujian": "unique",
+            "kelompokujian": "string",
+            "created_at": "2023-09-14 09:42:40",
+            "updated_at": "2022-06-13 22:12:54"
+        },
+    ],
+    "metadata": {
+        "total_count": "number",
+        "page_count": "number",
+        "page": "number",
+        "per_page": "number",
+        "sort": "desc",
+        "order_by": "created_at",
+        "keyword": "string"
+    }
+}
+```
+
+
 ## Kunci Jawaban
 
 ### Jenis Produk
