@@ -27,8 +27,8 @@ Response :
 
 ```json
 {
-  "c_idbank": "string",
-  "c_namabank": "string"
+  "idbank": "string",
+  "namabank": "string"
 }
 ```
 
@@ -54,14 +54,14 @@ Response
 {
   "data": [
     {
-      "c_IdVA": "string",
-      "c_IdBank": "number",
-      "c_NamaBank": "string",
-      "c_NomorVA": "number",
-      "c_Peruntukan": "string",
-      "c_TanggalUpload": "string",
-      "c_Uploader": "string",
-      "c_IsTerpakai": "number"
+      "IdVA": "string",
+      "IdBank": "number",
+      "NamaBank": "string",
+      "NomorVA": "number",
+      "Peruntukan": "string",
+      "TanggalUpload": "string",
+      "Uploader": "string",
+      "IsTerpakai": "number"
     }
   ],
   "meta": {
