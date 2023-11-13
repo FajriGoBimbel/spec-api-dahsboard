@@ -1,36 +1,88 @@
 # API Spec
 
-### get list mata pelajaran
+### get status
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/list/matapelajaran?search=${nama}`
+- Endpoint : `/api/v1/status?search=${nama}`
 
 Response :
 
 ```json
 {
   "id": "number",
-  "nama": "string",
-  "singkatan": "string",
-  "status": "string",
-  "issubtk": "string"
+  "nama": "string"
 }
 ```
 
-### get list bab
+### get list bank
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/list/bab/:idmatapelajaran?search=${nama}`
+- Endpoint : `/api/v1/list/bank?search=${nama}`
+
+Response :
+
+```json
+{
+  "c_idbank": "string",
+  "c_namabank": "string"
+}
+```
+
+### get data virtual account
+
+Request
+
+- Method : POST
 - Header : null
+- Endpoint : `/api/v1/uploadva/getdata?&sortby=${c_NomorVA|c_Peruntukan|c_TanggalUpload|c_Uploader}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+  ```json
+  {
+    "idbank": "string",
+    "status": "number"
+  }
+  ```
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "c_IdVA": "string",
+      "c_IdBank": "number",
+      "c_NamaBank": "string",
+      "c_NomorVA": "number",
+      "c_Peruntukan": "string",
+      "c_TanggalUpload": "string",
+      "c_Uploader": "string",
+      "c_IsTerpakai": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## delete data virtual account
+
+Request
+
+- Method : POST
+- Endpoint : `/api/v1/uploadva/deldata`
 - Body :
 
 ```json
 {
-  "id": "number"
+  "idva": [1, 2, 3]
 }
 ```
 
@@ -38,15 +90,6 @@ Response :
 
 ```json
 {
-  "data": [
-    {
-      "id": "string, unique",
-      "nama": "string",
-      "pelajaranbab": "string",
-      "upline": "string",
-      "total": "number"
-    }
-  ],
   "meta": {
     "code": "number",
     "message": "string",
@@ -55,28 +98,16 @@ Response :
 }
 ```
 
-### get list tree bab
+### download template excel
 
-Request :
+Request : 
+ - Method : GET
+ - Endpoint : `/api/v1/uploadva/templateexcel`
 
-- Method : GET
-- Endpoint : `api/v1/master/bab/treebab?bab=${id}`
-
-Response :
+ Response :
 
 ```json
 {
-  "data": [
-    {
-      "id": "string, unique",
-      "kode": "string, unique",
-      "nama": "string",
-      "namabab": "string",
-      "upline": "string",
-      "jumlahsoal": "number",
-      "peluang": "string"
-    }
-  ],
   "meta": {
     "code": "number",
     "message": "string",
@@ -85,49 +116,4 @@ Response :
 }
 ```
 
-### get list soal
-
-Request :
-
-- Method : GET
-- Endpoint : `api/v1/soal/soal?idbab=${id}`
-
-Response :
-
-```json
-{
-  "data": [
-    {
-      "id": "string, unique",
-      "tipesoal": "string",
-      "levelkognitif": "string",
-      "saranpenggunaan": "string",
-      "tingkatkesulitan": "string",
-      "metodepengambilan": "string",
-      "waktupengerjaan": "string",
-      "idsumber": "string",
-      "namasumber": "string",
-      "idvideo": "number",
-      "judulvideo": "string",
-      "idwacana": "number",
-      "judulwacana": "string",
-      "totalbab": "number",
-      "nikpembuat": "number",
-      "namapembuat": "string",
-      "tanggalpembuatan": "date",
-      "isverif": "string",
-      "nikverif": "number | string",
-      "namaverif": "string",
-      "tanggalverif": "date",
-      "soal": "string",
-      "opsi": "string",
-      "wacana": "string"
-    }
-  ],
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
+###
