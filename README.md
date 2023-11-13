@@ -1,75 +1,16 @@
 # API Spec
 
-### MODUL SMBA
+# MODUL SMBA
 
-### AKSES
+## Akses Role
 
-## TAMBAH ROLE
-
-Request :
-
-- Method : POST
-- Endpoint : `/api/v1/role`,
-- Header : null
-- Body :
-
-```json
-{
-  "namaRole": "string",
-  "status": "string", // cth Aktif || Tidak Aktif
-  "totalMenu": "number"
-}
-```
-
-Response :
-
-```json
-{
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-## EDIT NAMA ROLE
-
-Request :
-
-- Method : PUT
-- Endpoint : `/api/v1/role`,
-- Header : null
-- Body :
-
-```json
-{
-  "namaRole": "string",
-  "status": "string", // cth Aktif || Tidak Aktif
-  "totalMenu": "number"
-}
-```
-
-Response :
-
-```json
-{
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-## GET LIST ROLE SMBA
+### getAll
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/roles/smba/${params.page}/${params.search}`,
+- Endpoint : `/api/v1/akses/roles/get-all?&sortby=${nama|status|total}&sort=${asc|desc}&page=${page}&limit=${limit}`
 - Header : null
-- Body : null
 
 Response :
 
@@ -77,16 +18,44 @@ Response :
 {
   "data": [
     {
-      "id": "string, unique",
-      "namaRole": "string",
-      "status": "string",
-      "createdAt": "date",
-      "updatedAt": "date"
-    }
+      "id": "number, unique",
+      "nama": "string",
+      "status": "boolean",
+      "total": "number"
+    },
   ],
-  "count": "number",
-  "page": "number",
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
 
+### update role name
+
+- Method : PUT
+- Endpoint : `/api/v1/akses/roles`
+- Header : null
+- Body :
+
+```json
+{
+  "id": "number",
+  "nama": "string"
+}
+```
+
+Response :
+
+```json
+{
   "meta": {
     "code": "number",
     "message": "string",
@@ -95,9 +64,60 @@ Response :
 }
 ```
 
-### PETUGAS
+### update status
 
-## TAMBAH PETUGAS
+- Method : PUT
+- Endpoint : `/api/v1/akses/roles/status`
+- Header : null
+- Body :
+
+```json
+{
+  "id": "number",
+  "status": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### tambah role
+
+- Method : POST
+- Endpoint : `/api/v1/akses/roles`
+- Header : null
+- Body :
+
+```json
+{
+  "nama": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## PETUGAS
+
+### TAMBAH PETUGAS
 
 Request :
 
@@ -126,7 +146,7 @@ Response :
 }
 ```
 
-## EDIT PETUGAS
+### EDIT PETUGAS
 
 Request :
 
@@ -155,7 +175,7 @@ Response :
 }
 ```
 
-## GET LIST PETUGAS
+### GET LIST PETUGAS
 
 Request :
 
@@ -190,11 +210,11 @@ Response :
 }
 ```
 
-### MASTER
+## MASTER
 
 ### MATA PELAJARAN
 
-## TAMBAH MATA PELAJARAN
+#### TAMBAH MATA PELAJARAN
 
 Request :
 
@@ -224,7 +244,7 @@ Response :
 }
 ```
 
-## EDIT MATA PELAJARAN
+#### EDIT MATA PELAJARAN
 
 Request :
 
@@ -254,7 +274,7 @@ Response :
 }
 ```
 
-## GET LIST MATA PELAJARAN
+#### GET LIST MATA PELAJARAN
 
 Request :
 
@@ -289,7 +309,7 @@ Response :
 }
 ```
 
-## GET DETAIL MATA PELAJARAN
+#### GET DETAIL MATA PELAJARAN
 
 Request :
 
@@ -320,7 +340,7 @@ Response :
 }
 ```
 
-## DELETE BY ID MATA PELAJARAN
+#### DELETE BY ID MATA PELAJARAN
 
 Request :
 
@@ -343,7 +363,7 @@ Response :
 
 ### KURIKULUM
 
-## TAMBAH KURIKULUM
+#### TAMBAH KURIKULUM
 
 Request :
 
@@ -375,7 +395,7 @@ Response :
 }
 ```
 
-## EDIT Kurikulum
+#### EDIT Kurikulum
 
 Request :
 
@@ -407,7 +427,7 @@ Response :
 }
 ```
 
-## GET LIST KURIKULUM
+#### GET LIST KURIKULUM
 
 Request :
 
@@ -444,11 +464,11 @@ Response :
 }
 ```
 
-## GET DETAIL KURIKULUM
+#### GET DETAIL KURIKULUM
 
 Request :
 
-- Method : PUT
+- Method : GET
 - Endpoint : `/api/v1/kurikulum/${params.idKurikulum}`,
 - Header : null
 - Body : null
@@ -514,7 +534,7 @@ Response :
 }
 ``` -->
 
-## TAMBAH BAB
+#### TAMBAH BAB
 
 Request :
 
@@ -548,7 +568,7 @@ Response :
 }
 ```
 
-## EDIT BAB
+#### EDIT BAB
 
 Request :
 
@@ -582,7 +602,7 @@ Response :
 }
 ```
 
-## GET LIST BAB
+#### GET LIST BAB
 
 Request :
 
@@ -622,7 +642,7 @@ Response :
 }
 ```
 
-## GET DETAIL BAB
+#### GET DETAIL BAB
 
 Request :
 
@@ -664,7 +684,7 @@ Response :
 
 ### SILABUS
 
-## GET TAHUN AJARAN
+#### GET TAHUN AJARAN
 
 Request :
 
@@ -691,7 +711,7 @@ Request :
 }
 ```
 
-## GET TINGKAT KELAS
+#### GET TINGKAT KELAS
 
 Request :
 
@@ -718,7 +738,7 @@ Request :
 }
 ```
 
-## GET Layanan/JENIS KELAS
+#### GET Layanan/JENIS KELAS
 
 Request :
 
@@ -745,7 +765,7 @@ Request :
 }
 ```
 
-## GET KELOMPOK UJIAN
+#### GET KELOMPOK UJIAN
 
 Request :
 
@@ -772,7 +792,7 @@ Request :
 }
 ```
 
-## TAMBAH SILABUS
+#### TAMBAH SILABUS
 
 Request :
 
@@ -807,7 +827,7 @@ Request :
 }
 ```
 
-## GET LIST SILABUS
+#### GET LIST SILABUS
 
 Request :
 
@@ -844,7 +864,7 @@ Request :
 }
 ```
 
-## GET DETAIL SILABUS
+#### GET DETAIL SILABUS
 
 Request :
 
@@ -893,7 +913,7 @@ Request :
 
 ### MATA AJAR
 
-## TAMBAH MATA AJAR
+#### TAMBAH MATA AJAR
 
 Request :
 
@@ -923,7 +943,7 @@ Response :
 }
 ```
 
-## EDIT MATA AJAR
+#### EDIT MATA AJAR
 
 Request :
 
@@ -953,7 +973,7 @@ Response :
 }
 ```
 
-## GET LIST MATA AJAR
+#### GET LIST MATA AJAR
 
 Request :
 
@@ -988,7 +1008,7 @@ Response :
 }
 ```
 
-## GET DETAIL MATA AJAR
+#### GET DETAIL MATA AJAR
 
 Request :
 
@@ -1019,11 +1039,11 @@ Response :
 }
 ```
 
-### SOAL
+## SOAL
 
-## SUMBER SOAL
+### SUMBER SOAL
 
-## GET JENIS SUMBER SOAL
+#### GET JENIS SUMBER SOAL
 
 Request :
 
@@ -1050,7 +1070,7 @@ Request :
 }
 ```
 
-## TAMBAH SUMBER SOAL
+#### TAMBAH SUMBER SOAL
 
 Request :
 
@@ -1079,7 +1099,7 @@ Response :
 }
 ```
 
-## EDIT SUMBER SOAL
+#### EDIT SUMBER SOAL
 
 Request :
 
@@ -1108,7 +1128,7 @@ Response :
 }
 ```
 
-## GET LIST SUMBER SOAL
+#### GET LIST SUMBER SOAL
 
 Request :
 
@@ -1143,7 +1163,7 @@ Response :
 }
 ```
 
-## GET DETAIL ISI KODE SUMBER
+#### GET DETAIL ISI KODE SUMBER
 
 Request :
 
@@ -1185,7 +1205,7 @@ Response :
 
 ### WACANA
 
-## GET LIST WACANA
+#### GET LIST WACANA
 
 Request :
 
@@ -1220,7 +1240,7 @@ Response :
 }
 ```
 
-## GET DETAIL WACANA
+#### GET DETAIL WACANA
 
 Request :
 
@@ -1251,7 +1271,7 @@ Response :
 }
 ```
 
-## TAMBAH WACANA
+#### TAMBAH WACANA
 
 Request :
 
@@ -1280,7 +1300,7 @@ Response :
 }
 ```
 
-## UPDATE WACANA
+#### UPDATE WACANA
 
 Request :
 
@@ -1309,7 +1329,7 @@ Response :
 }
 ```
 
-## HAPUS WACANA
+#### HAPUS WACANA
 
 Request :
 
@@ -1329,7 +1349,7 @@ Response :
 }
 ```
 
-## UPLOAD VIDEO
+### UPLOAD VIDEO
 
 Request :
 
@@ -1360,8 +1380,9 @@ Response :
 }
 ```
 
-## MENGISI SOAL
-# getSoal by bab
+### MENGISI SOAL
+
+#### getSoal by bab
 Request :
 
 - Method : get
@@ -1405,7 +1426,9 @@ Response :
   }
 }
 ```
-# getSoal by id
+
+
+#### getSoal by id
 Request :
 
 - Method : get
@@ -1449,7 +1472,9 @@ Response :
   }
 }
 ```
-# Create Soal By id soal
+
+
+#### Create Soal By id soal
 
 Request :
 
@@ -1499,7 +1524,7 @@ Response :
 }
 ```
 
-# edit Soal By id soal
+#### edit Soal By id soal
 
 Request :
 
@@ -1551,7 +1576,7 @@ Response :
 ```
 
 
-# Delete Soal By id soal
+#### Delete Soal By id soal
 
 Request :
 
@@ -1573,13 +1598,13 @@ Response :
 }
 ```
 
-## Verivikasi 
+### Verivikasi 
 masih Menunggu untuk bisa verifikasi
 
 
-## Target Pengerjaan Soal
+### Target Pengerjaan Soal
 
-# getTarget by tahun ajaran dan Tingkat Sekolah Kelas
+#### getTarget by tahun ajaran dan Tingkat Sekolah Kelas
 Request :
 
 - Method : get
@@ -1611,7 +1636,7 @@ Response :
 ```
 
 
-# getTarget by id
+#### getTarget by id
 Request :
 
 - Method : get
@@ -1642,7 +1667,7 @@ Response :
 }
 ```
 
-# create Target Pengerjaan
+#### create Target Pengerjaan
 Request :
 
 - Method : POST
@@ -1675,7 +1700,7 @@ Response :
 }
 ```
 
-# Edit Target Pengerjaan
+#### Edit Target Pengerjaan
 Request :
 
 - Method : PUT
@@ -1709,7 +1734,7 @@ Response :
 ```
 
 
-# Edit Target Pengerjaan
+#### Edit Target Pengerjaan
 Request :
 
 - Method : Delete
@@ -1731,11 +1756,11 @@ Response :
 ```
 
 
-### Paket dan Bundel Soal
+## Paket dan Bundel Soal
 
-## bundel soal
+### bundel soal
 
-# get list bundel soal
+#### get list bundel soal
 Request :
 
 - Method : GET
@@ -1775,7 +1800,7 @@ Response :
 }
 ```
 
-# get bundel soal by id
+#### get bundel soal by id
 Request :
 
 - Method : GET
@@ -1812,7 +1837,7 @@ Response :
 }
 ```
 
-# Create bundel soal
+#### Create bundel soal
 Request :
 
 - Method : POST
@@ -1852,7 +1877,7 @@ Response :
 }
 ```
 
-# Update bundel soal
+#### Update bundel soal
 Request :
 
 - Method : PUT
@@ -1892,7 +1917,9 @@ Response :
   }
 }
 ```
-# Delete bundel soal
+
+
+#### Delete bundel soal
 Request :
 
 - Method : Delete
@@ -1912,9 +1939,10 @@ Response :
   }
 }
 ```
-## Paket Soal   
 
-# get List Paket soal 
+### Paket Soal   
+
+#### get List Paket soal 
 Request :
 
 - Method : GET
@@ -1950,7 +1978,7 @@ Response :
 }
 ```
 
-# get Paket soal by id Paket
+#### get Paket soal by id Paket
 Request :
 
 - Method : GET
@@ -1986,7 +2014,7 @@ Response :
 }
 ```
 
-# Create Paket soal 
+#### Create Paket soal 
 Request :
 
 - Method : POST
@@ -2020,7 +2048,7 @@ Response :
 ```
 
 
-# Edit Paket soal 
+#### Edit Paket soal 
 Request :
 
 - Method : PUT
@@ -2056,7 +2084,7 @@ Response :
 ```
 
 
-# Delete Paket soal 
+#### Delete Paket soal 
 Request :
 
 - Method : Delete
@@ -2079,11 +2107,11 @@ Response :
 ```
 
 
-### BUKU
+## BUKU
 
-## Buku Teori
+### Buku Teori
 
-# Get List Bab
+#### Get List Bab
 Request :
 
 - Method : GET
@@ -2114,7 +2142,7 @@ Response :
 ```
 
 
-# Get List buku teori by kode bab
+#### Get List buku teori by kode bab
 Request :
 
 - Method : GET
@@ -2147,7 +2175,7 @@ Response :
 }
 ```
 
-# create isi bab buku teori
+#### create isi bab buku teori
 Request :
 
 - Method : POST
@@ -2177,7 +2205,7 @@ Response :
 }
 ```
 
-# Edit isi bab buku teori
+#### Edit isi bab buku teori
 Request :
 
 - Method : PUT
@@ -2206,7 +2234,8 @@ Response :
   }
 }
 ```
-# Delete isi bab buku teori
+
+#### Delete isi bab buku teori
 Request :
 
 - Method : Delete
@@ -2235,9 +2264,10 @@ Response :
   }
 }
 ```
-## Membuat BUKU
 
-# Get list BUKU
+### Membuat BUKU
+
+#### Get list BUKU
 Request :
 
 - Method : Get
@@ -2274,7 +2304,8 @@ Response :
   }
 }
 ```
-# create Buku
+
+#### create Buku
 Request :
 
 - Method : Post
@@ -2309,7 +2340,7 @@ Response :
 }
 ```
 
-# Edit Buku
+#### Edit Buku
 Request :
 
 - Method : PUT
@@ -2344,7 +2375,7 @@ Response :
 }
 ```
 
-# Delete Buku
+#### Delete Buku
 Request :
 
 - Method : delete
@@ -2364,8 +2395,8 @@ Response :
   }
 }
 ```
-## get isi Buku
 
+#### get isi Buku
 
 
 ### KUNCI JAWABAN
