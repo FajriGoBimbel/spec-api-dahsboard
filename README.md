@@ -1,7 +1,5 @@
 # API Spec
 
-## Akses Role
-
 ### get list mata pelajaran
 
 Request :
