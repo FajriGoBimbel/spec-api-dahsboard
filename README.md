@@ -1,5 +1,7 @@
 # API Spec
 
+## Rekening
+
 ### get status
 
 Request :
@@ -115,5 +117,3 @@ Request :
   }
 }
 ```
-
-###
