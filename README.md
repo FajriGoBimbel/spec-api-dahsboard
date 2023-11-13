@@ -1,13 +1,13 @@
 # API Spec
 
-## Produk Kelompok
+## Akses Role
 
 ### getAll
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/produk-kelompok/get-all?search=${nama_kelompok}&sortby=${nama_kelompok|jumlah_anggota|jumlah_produk|ispengajar}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Endpoint : `/api/v1/akses/roles/get-all?&sortby=${nama|status|total}&sort=${asc|desc}&page=${page}&limit=${limit}`
 - Header : null
 
 Response :
@@ -16,13 +16,10 @@ Response :
 {
   "data": [
     {
-      "id_kelompok": "number, unique",
-      "nama_kelompok": "string",
-      "jumlah_anggota": "number",
-      "jumlah_produk": "number",
-      "isPengajar": "boolean",
-      "createdAt": "date",
-      "updatedAt": "date"
+      "id": "number, unique",
+      "nama": "string",
+      "status": "boolean",
+      "total": "number"
     },
     {},
     {}
@@ -41,97 +38,68 @@ Response :
 }
 ```
 
-### getById
+### update role name
 
-Request :
-
-- Method : GET
-- Endpoint : `/api/v1/produk-kelompok/get-byid/:id_kelompok?search=${nama_kelompok}&sortby=${nama_produk|jenis_produk|tglawal|tglakhir}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Method : PUT
+- Endpoint : `/api/v1/akses/roles`
 - Header : null
+- Body :
+
+```json
+{
+  "id": "number",
+  "nama": "string"
+}
+```
 
 Response :
 
 ```json
 {
-  "data": [
-    {
-      "id_kelompok": "number, unique",
-      "nama_produk": "string",
-      "jenis_produk": "string",
-      "tglawal": "date",
-      "tglakhir": "date"
-    },
-    {},
-    {}
-  ],
   "meta": {
     "code": "number",
     "message": "string",
     "status": "string"
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "totalData": 2,
-    "totalPage": 1
   }
 }
 ```
 
-<!-- get untuk nambah produk -->
+### update status
 
-### getPodukId
-
-Request :
-
-- Method : GET
-- Endpoint : `/api/v1/produk-kelompok/get-produk?id=${id}&jenisprodukid=${id}&jenislayanan={id}&cari=${produk}&page=${page}&limit=${limit}`
+- Method : PUT
+- Endpoint : `/api/v1/akses/roles/status`
 - Header : null
+- Body :
+
+```json
+{
+  "id": "number",
+  "status": "boolean"
+}
+```
 
 Response :
 
 ```json
 {
-  "data": [
-    {
-      "id_produk": "number, unique",
-      "nama_produk": "string",
-      "id_nama_produk": "string",
-      "tglawal": "date",
-      "tglakhir": "date",
-      "cek": "boolean"
-    },
-    {},
-    {}
-  ],
   "meta": {
     "code": "number",
     "message": "string",
     "status": "string"
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "totalData": 2,
-    "totalPage": 1
   }
 }
 ```
 
-### post produk
-
-Request :
+### tambah role
 
 - Method : POST
-- Endpoint : `/api/v1/produk-kelompok/produkpengajar/:idkelompok`
+- Endpoint : `/api/v1/akses/roles`
 - Header : null
-- Body (ArrayObj || Obj) :
+- Body :
 
 ```json
 {
-  "idProduk": "number, req",
-  "startDate": "date, req",
-  "endDate": "date, req"
+  "nama": "string"
 }
 ```
 
