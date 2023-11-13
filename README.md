@@ -74,7 +74,7 @@ Response :
 ```json
 {
   "id": "number",
-  "status": "boolean"
+  "status": "string"
 }
 ```
 
