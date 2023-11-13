@@ -3832,6 +3832,276 @@ Response :
 ```
 
 
+## VIDEO TEASER
+
+### TAMBAH DATA VIDEO TEASER
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST VIDEO TEASER
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/video-teaser/${params.tingkatKelas}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "idtingkatkelas": "number",
+      "role": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "linkvideo": "string",
+      "namaVideo": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### UBAH VIDEO TEASER
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### DELETE DATA VIDEO TEASER
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/video-teaser/${params.idVideo}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## VIDEO EKSTRA
+
+### TAMBAH DATA VIDEO EKSTRA
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "tahunAjarang": "string",
+  "jenisLayanan": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string",
+  "mataPelajaran": "string",
+  "bab": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### UBAH VIDEO EKSTRA
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/video-ekstra`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "tahunAjarang": "string",
+  "jenisLayanan": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string",
+  "mataPelajaran": "string",
+  "bab": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST VIDEO EKSTRA
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/video-ekstra/${params.tingkatKelas}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "idtingkatkelas": "number",
+      "tingkatkelas": "number",
+      "tahunajaran": "string",
+      "layanan": "number",
+      "jenislayanan": "string",
+      "idvideo": "number",
+      "namavideo": "string",
+      "role": "string",
+      "jenisvideo": "string",
+      "idkomponenproduk": "number",
+      "komponenproduk": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "linkvideo": "string",
+      "header": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### DELETE DATA VIDEO EKSTRA
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/video-ekstra/${params.idVideo}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
 ## Produk Kelompok
 
 ### getAll
