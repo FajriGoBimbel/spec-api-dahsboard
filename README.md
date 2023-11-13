@@ -2,13 +2,39 @@
 
 ## Akses Role
 
-### getAll
+### get list mata pelajaran
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/akses/roles/get-all?&sortby=${nama|status|total}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Endpoint : `/api/v1/list/matapelajaran?search=${nama}`
+
+Response :
+
+```json
+{
+  "id": "number",
+  "nama": "string",
+  "singkatan": "string",
+  "status": "string",
+  "issubtk": "string"
+}
+```
+
+### get list bab
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/list/bab/:idmatapelajaran?search=${nama}`
 - Header : null
+- Body :
+
+```json
+{
+  "id": "number"
+}
+```
 
 Response :
 
@@ -16,46 +42,43 @@ Response :
 {
   "data": [
     {
-      "id": "number, unique",
+      "id": "string, unique",
       "nama": "string",
-      "status": "boolean",
+      "pelajaranbab": "string",
+      "upline": "string",
       "total": "number"
-    },
-    {},
-    {}
+    }
   ],
   "meta": {
     "code": "number",
     "message": "string",
     "status": "string"
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "totalData": 2,
-    "totalPage": 1
   }
 }
 ```
 
-### update role name
+### get list tree bab
 
-- Method : PUT
-- Endpoint : `/api/v1/akses/roles`
-- Header : null
-- Body :
+Request :
 
-```json
-{
-  "id": "number",
-  "nama": "string"
-}
-```
+- Method : GET
+- Endpoint : `api/v1/master/bab/treebab?bab=${id}`
 
 Response :
 
 ```json
 {
+  "data": [
+    {
+      "id": "string, unique",
+      "kode": "string, unique",
+      "nama": "string",
+      "namabab": "string",
+      "upline": "string",
+      "jumlahsoal": "number",
+      "peluang": "string"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
@@ -64,49 +87,45 @@ Response :
 }
 ```
 
-### update status
+### get list soal
 
-- Method : PUT
-- Endpoint : `/api/v1/akses/roles/status`
-- Header : null
-- Body :
+Request :
 
-```json
-{
-  "id": "number",
-  "status": "string"
-}
-```
+- Method : GET
+- Endpoint : `api/v1/soal/soal?idbab=${id}`
 
 Response :
 
 ```json
 {
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### tambah role
-
-- Method : POST
-- Endpoint : `/api/v1/akses/roles`
-- Header : null
-- Body :
-
-```json
-{
-  "nama": "string"
-}
-```
-
-Response :
-
-```json
-{
+  "data": [
+    {
+      "id": "string, unique",
+      "tipesoal": "string",
+      "levelkognitif": "string",
+      "saranpenggunaan": "string",
+      "tingkatkesulitan": "string",
+      "metodepengambilan": "string",
+      "waktupengerjaan": "string",
+      "idsumber": "string",
+      "namasumber": "string",
+      "idvideo": "number",
+      "judulvideo": "string",
+      "idwacana": "number",
+      "judulwacana": "string",
+      "totalbab": "number",
+      "nikpembuat": "number",
+      "namapembuat": "string",
+      "tanggalpembuatan": "date",
+      "isverif": "string",
+      "nikverif": "number | string",
+      "namaverif": "string",
+      "tanggalverif": "date",
+      "soal": "string",
+      "opsi": "string",
+      "wacana": "string"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
