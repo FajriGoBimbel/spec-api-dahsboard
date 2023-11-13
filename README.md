@@ -1620,8 +1620,140 @@ Response :
 }
 ```
 
-### Verivikasi 
-masih Menunggu untuk bisa verifikasi
+### verifikasi 
+
+#### Get List Mata Pelajaran
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/list/matapelajaran?search=${nama}`
+
+Response :
+
+```json
+{
+  "id": "number",
+  "nama": "string",
+  "singkatan": "string",
+  "status": "string",
+  "issubtk": "string"
+}
+```
+
+#### Get List Bab
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/list/bab/:idmatapelajaran?search=${nama}`
+- Header : null
+- Body :
+
+```json
+{
+  "id": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "nama": "string",
+      "pelajaranbab": "string",
+      "upline": "string",
+      "total": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Get List Tree Bab
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/master/bab/treebab?bab=${id}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "kode": "string, unique",
+      "nama": "string",
+      "namabab": "string",
+      "upline": "string",
+      "jumlahsoal": "number",
+      "peluang": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Get List Soal
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/soal/soal?idbab=${id}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "tipesoal": "string",
+      "levelkognitif": "string",
+      "saranpenggunaan": "string",
+      "tingkatkesulitan": "string",
+      "metodepengambilan": "string",
+      "waktupengerjaan": "string",
+      "idsumber": "string",
+      "namasumber": "string",
+      "idvideo": "number",
+      "judulvideo": "string",
+      "idwacana": "number",
+      "judulwacana": "string",
+      "totalbab": "number",
+      "nikpembuat": "number",
+      "namapembuat": "string",
+      "tanggalpembuatan": "date",
+      "isverif": "string",
+      "nikverif": "number | string",
+      "namaverif": "string",
+      "tanggalverif": "date",
+      "soal": "string",
+      "opsi": "string",
+      "wacana": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
 
 
 ### Target Pengerjaan Soal
@@ -3698,6 +3830,423 @@ Response :
   }
 }
 ```
+
+
+## VIDEO TEASER
+
+### TAMBAH DATA VIDEO TEASER
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST VIDEO TEASER
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/video-teaser/${params.tingkatKelas}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "idtingkatkelas": "number",
+      "role": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "linkvideo": "string",
+      "namaVideo": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### UBAH VIDEO TEASER
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### DELETE DATA VIDEO TEASER
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/video-teaser/${params.idVideo}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## VIDEO EKSTRA
+
+### TAMBAH DATA VIDEO EKSTRA
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/video-teaser`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "tahunAjarang": "string",
+  "jenisLayanan": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string",
+  "mataPelajaran": "string",
+  "bab": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### UBAH VIDEO EKSTRA
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/video-ekstra`
+- Header : null
+- Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "tahunAjarang": "string",
+  "jenisLayanan": "string",
+  "role": "string",
+  "tanggalAwal": "string",
+  "tanggalAkhir": "string",
+  "linkVideo": "string",
+  "namaVideo": "string",
+  "mataPelajaran": "string",
+  "bab": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST VIDEO EKSTRA
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/video-ekstra/${params.tingkatKelas}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "idtingkatkelas": "number",
+      "tingkatkelas": "number",
+      "tahunajaran": "string",
+      "layanan": "number",
+      "jenislayanan": "string",
+      "idvideo": "number",
+      "namavideo": "string",
+      "role": "string",
+      "jenisvideo": "string",
+      "idkomponenproduk": "number",
+      "komponenproduk": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "linkvideo": "string",
+      "header": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### DELETE DATA VIDEO EKSTRA
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/video-ekstra/${params.idVideo}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+## Produk Kelompok
+
+### getAll
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/produk-kelompok/get-all?search=${nama_kelompok}&sortby=${nama_kelompok|jumlah_anggota|jumlah_produk|ispengajar}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Header : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id_kelompok": "number, unique",
+      "nama_kelompok": "string",
+      "jumlah_anggota": "number",
+      "jumlah_produk": "number",
+      "isPengajar": "boolean",
+      "createdAt": "date",
+      "updatedAt": "date"
+    },
+    {},
+    {}
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
+
+### getById
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/produk-kelompok/get-byid/:id_kelompok?search=${nama_kelompok}&sortby=${nama_produk|jenis_produk|tglawal|tglakhir}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Header : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id_kelompok": "number, unique",
+      "nama_produk": "string",
+      "jenis_produk": "string",
+      "tglawal": "date",
+      "tglakhir": "date"
+    },
+    {},
+    {}
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
+
+<!-- get untuk nambah produk -->
+
+### getPodukId
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/produk-kelompok/get-produk?id=${id}&jenisprodukid=${id}&jenislayanan={id}&cari=${produk}&page=${page}&limit=${limit}`
+- Header : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id_produk": "number, unique",
+      "nama_produk": "string",
+      "id_nama_produk": "string",
+      "tglawal": "date",
+      "tglakhir": "date",
+      "cek": "boolean"
+    },
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
+
+### post produk
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/produk-kelompok/produkpengajar/:idkelompok`
+- Header : null
+- Body (ArrayObj || Obj) :
+
+```json
+{
+  "idProduk": "number, req",
+  "startDate": "date, req",
+  "endDate": "date, req"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
 
 ## JPMP
 
