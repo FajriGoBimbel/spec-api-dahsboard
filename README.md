@@ -2396,8 +2396,297 @@ Response :
 }
 ```
 
-#### get isi Buku
+#### isi Buku
 
+##### Get Isi Buku
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/buku/isibuku?kodebuku={kodeBuku}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+         {
+            "idisibuku": "int",
+            "kodebuku": "int",
+            "kodebab": "String",
+            "namabab": "String",
+            "upline": "String"
+        },
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+##### Update Isi Buku
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/buku/isibuku`
+- Header : null
+- Body : 
+```json
+{
+    "babs": ["int,String"],//list of kodebab/idbab
+    "kodebuku": "int"
+}
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+### produk BUKU
+
+#### Get Produk Buku
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/buku/produkbuku?kodebuku={kodebuku}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+        {
+            "kode": "int",
+            "idproduk":  "int",
+            "namaproduk": "String"
+        },
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+##### Tambah Produk Buku
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/buku/produkbuku`
+- Header : null
+- Body : 
+
+```json
+{
+    "kodeBuku": "int",
+    "porduks":["int"]//list id Produk
+}
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+#### Delete Produk Buku
+Request :
+
+- Method : Delete
+- Endpoint : `/api/v1/buku/produkbuku/{kodeBuku}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+### Buku Teaser
+
+#### list Buku Teaser
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/buku/bukuteoriteaser?tingkatkelas={value}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+        {
+            "idtingkatkelas": "int",
+            "role": "String",
+            "tglawal": "String,date",
+            "tglakhir": "String,date",
+            "tahunajaran": "String",
+            "idkurikulum": "int",
+            "semester": "int",
+            "jenis": "String",
+            "kodebuku": "int",
+            "namabuku": "String"
+        },
+
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Tambah Buku Teaser
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/buku/bukuteoriteaser/`
+- Header : null
+- Body : 
+```json
+{
+    "tingkatkelas":"int",
+    "role":"String",
+    "tglawal":"String,date",
+    "tglakhir":"String,date",
+    "kodebuku":"int"
+}
+
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Edit Buku Teaser
+Request :
+
+- Method : Put
+- Endpoint : `/api/v1/buku/bukuteoriteaser/{kodebuku}`
+- Header : null
+- Body : 
+```json
+{
+    "tingkatkelas":"int",
+    "role":"String",
+    "tglawal":"String,date",
+    "tglakhir":"String,date",
+    "kodebuku":"int"
+}
+
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Delete Buku Teaser
+Request :
+
+- Method : Delete
+- Endpoint : `/api/v1/buku/bukuteoriteaser/{kodebuku}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+ #### get List nama BUKU 
+
+ // untuk Mengambil kode buku saat menambahkan di teaser
+
+ Request :
+
+- Method : Get
+- Endpoint : `/api/v1/list/namabuku?tingkatkelas={value}&tahunajaran={value}&kurikulum={value}&semester={value}&jenis={value}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+     {
+            "kode": "int",
+            "nama": "String"
+        },
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
 
 ## BAH
 
@@ -2908,6 +3197,312 @@ Response :
         "order_by": "created_at",
         "keyword": "string"
     }
+}
+```
+
+
+## JPMP
+
+### JPMP
+
+#### Get List JPMP
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/jpmp?tingkatkelas={value}&tahunajaran={value}&semester={value}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+     {
+            "c_IdJuklak": "int",
+            "c_IdSekolahKelas": "int",
+            "c_Semester": "int",
+            "c_TahunAjaran": "String",
+            "c_JenisLayanan": "String",
+            "c_NamaJuklak": "String",
+            "c_HariBelajar": "String",
+            "c_JumlahPertemuanPerMinggu": "int",
+            "c_TanggalAwal": "String, date",
+            "c_TanggalAkhir": "String, date",
+            "c_TotalPertemuan": "int",
+            "c_DetailTotalPertemuan":"String HTML" ,
+            //contoh "{\"PENGARAHAN\": 2, \"TOTAL KBM KODING\": 111, \"GOA (DI LUAR KBM)\": 0, \"TOBK (DI LUAR KBM)\": 8, \"RESPONSI DI LUAR KBM\": 0, \"KAPITA SELEKTA THE KING\": 4}",
+            "c_LastUpdate": "String, datetime",
+            "c_KodeJuklak": "String",
+            "c_Updater": "String",
+            "c_TanggalUpload":"String,datetime",
+            "c_Uploader": "String",
+            "c_Status": "bolean",
+            "c_JmlDet": "int"
+        },
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Get Detail JPMP
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/jpmp/{kodejuklak}`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":[
+             {
+                "c_TanggalAwal": "String, date",
+                "c_TanggalAkhir": "String, date",
+                "c_MataPelajaran":[
+                    {
+                        "idmatapelajaran": "int",
+                        "namamatapelajaran": "String",
+                        "JumlahPembelajaran":"int"
+                    }
+                ],
+                "c_Status": "String",
+                "c_TanggalUpload": "String, datetime",
+            },,
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Download Tamplate JPMP
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/jpmp/tamplate/jpmp`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":"file Tamplate JPMP",
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Download Tamplate JPMP Detail
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/jpmp/tamplate/jpmpdetail`
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data":"file Tamplate JPMP Detail",
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### upload Tamplate JPMP 
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/jpmp/tamplate/jpmp`
+- Header : null
+- Body : 
+
+```json
+{
+  "file":"file tamplate",
+
+}
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### upload Tamplate JPMP Detail
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/jpmp/tamplate/jpmpdetail`
+- Header : null
+- Body : 
+
+```json
+{
+  "file":"file tamplate",
+
+}
+```
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Set Aktif/tidak di JPMP 
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/jpmp/{kodejuklak}`
+- Header : null
+- Body : 
+```json
+    {
+        "kodejuklak":"int",
+        "status":"bolean",
+        "tanggalawal":"String,date", // jika hanya ingin mengubah detail di salah satu tanggal, kalau semua tidak perluada
+    }
+```
+
+
+Response :
+
+```json
+{
+  "data":null,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+
+
+### JPMP KELAS
+
+#### Get Penanda
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/penanda?keyword={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+     {
+            "id": "int",
+            "nama": "String"
+        },
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Get Zona
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1//zona?penanda={idPenanda}&&keyword={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+     {
+            "id": "int",
+            "nama": "String"
+        },
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+#### Get Gedung
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1//zona?penanda={idPenanda}&&keyword={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+     {
+            "id": "int",
+            "nama": "String"
+        },
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
