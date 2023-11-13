@@ -3201,6 +3201,482 @@ Response :
 ```
 
 
+## TOB
+
+### MEMBUAT TOB
+
+#### GET JENIS TOB
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/jenisTob`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+<!-- ### GET JENIS PRODUK
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/jenisProduk`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+``` -->
+
+#### TAMBAH TOB
+
+Request :
+
+Method : POST
+Endpoint : `/api/v1/tob`,
+Header : null
+Body :
+
+```json
+{
+  "tahunAjaran": "string",
+  "formatMerdeka": "boolean",
+  "namaTob": "string",
+  "jarakAntarPaket": "number",
+  "tanggalAwal": "date and time",
+  "tanggalAkhir": "date and time",
+  "jenisTob": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### GET DATA TABLE LIST TOB
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/${params.tahunAjaran}/${params.jenisTob}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "kode": "number",
+      "nama": "string",
+      "jenistob": "string",
+      "jarakantarpaket": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "tahunajaran": "2022/2023",
+      "istomerdeka": 0,
+      "status": "Aktif"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+#### GET DETAIL TOB
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/${params.kodeTob}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": {
+    "id": "string, unique",
+    "kode": "string",
+    "deskripsi": "string",
+    "tglawal": "date and time",
+    "tglakhir": "date and time",
+    "isblockingtime": "number",
+    "israndom": "number",
+    "iswajib": "number",
+    "urut": "number"
+  },
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### UBAH TOB
+
+Request :
+
+Method : PUT
+Endpoint : `/api/v1/tob`,
+Header : null
+Body :
+
+```json
+{
+  "tahunAjaran": "string",
+  "formatMerdeka": "boolean",
+  "namaTob": "string",
+  "jarakAntarPaket": "number",
+  "tanggalAwal": "date and time",
+  "tanggalAkhir": "date and time",
+  "jenisTob": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### TAMBAH PAKET SOAL
+
+Request :
+
+Method : PUT
+Endpoint : `/api/v1/tob/paket-soal`,
+Header : null
+Body :
+
+```json
+{
+  "kodetob": "number",
+  "kodepaket": "array",
+  "allkodepaket": "array"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### GET PRODUK TOB
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/produk-tob/${param.kodeTob}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "kode": "number",
+      "idproduk": "number",
+      "namaproduk": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### GET SYARAT EMPATI
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/syarat-empati/${param.kodeTob}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "namTO": "String",
+      "syarat": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### GET OPTION SYARAT EMPATI
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/to-empati/${param.tahunAjaran}/${param.tanggalAwal}/${param.tanggalAkhir}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "namaproduk": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### TAMBAH KOMPONEN PRODUK
+
+Request :
+
+Method : PUT
+Endpoint : `/api/v1/tob/komponen-produk`,
+Header : null
+Body :
+
+```json
+{
+  "kodetob": "number",
+  "kodepaket": "array",
+  "allkodepaket": "array"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### PAKET SOAL TEASER
+
+#### TAMBAH DATA PAKET SOAL TEASER
+
+Request :
+
+Method : POST
+Endpoint : `/api/v1/tob/paket-soal-teaser`,
+Header : null
+Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "date and time",
+  "tanggalAkhir": "date and time",
+  "tahunAjaran": "string",
+  "namaTob": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### UBAH DATA PAKET SOAL TEASER
+
+Request :
+
+Method : PUT
+Endpoint : `/api/v1/tob/paket-soal-teaser`,
+Header : null
+Body :
+
+```json
+{
+  "tingkatKelas": "string",
+  "role": "string",
+  "tanggalAwal": "date and time",
+  "tanggalAkhir": "date and time",
+  "tahunAjaran": "string",
+  "namaTob": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### DELETE DATA PAKET SOAL TEASER
+
+Request :
+
+Method : DELETE
+Endpoint : `/api/v1/tob/paket-soal-teaser/${params.idPaketSoalTeaser}`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### GET DATA TABLE LISTS PAKET SOAL TEASER
+
+Request :
+
+Method : GET
+Endpoint : `/api/v1/tob/paket-soal-teaser`,
+Header : null
+Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "idtingkatkelas": "number",
+      "role": "string",
+      "tglawal": "date and time",
+      "tglakhir": "date and time",
+      "tahunajaran": "string",
+      "kodetob": "number",
+      "namatob": "string",
+      "idproduk": "number",
+      "jmlproduk": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
 ## JPMP
 
 ### JPMP
