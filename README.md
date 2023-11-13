@@ -1,16 +1,75 @@
 # API Spec
 
-# MODUL SMBA
+### MODUL SMBA
 
-## Akses Role
+### AKSES
 
-### getAll
+## TAMBAH ROLE
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/role`,
+- Header : null
+- Body :
+
+```json
+{
+  "namaRole": "string",
+  "status": "string", // cth Aktif || Tidak Aktif
+  "totalMenu": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## EDIT NAMA ROLE
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/role`,
+- Header : null
+- Body :
+
+```json
+{
+  "namaRole": "string",
+  "status": "string", // cth Aktif || Tidak Aktif
+  "totalMenu": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET LIST ROLE SMBA
 
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/akses/roles/get-all?&sortby=${nama|status|total}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Endpoint : `/api/v1/roles/smba/${params.page}/${params.search}`,
 - Header : null
+- Body : null
 
 Response :
 
@@ -18,44 +77,16 @@ Response :
 {
   "data": [
     {
-      "id": "number, unique",
-      "nama": "string",
-      "status": "boolean",
-      "total": "number"
-    },
+      "id": "string, unique",
+      "namaRole": "string",
+      "status": "string",
+      "createdAt": "date",
+      "updatedAt": "date"
+    }
   ],
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  },
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "totalData": 2,
-    "totalPage": 1
-  }
-}
-```
+  "count": "number",
+  "page": "number",
 
-### update role name
-
-- Method : PUT
-- Endpoint : `/api/v1/akses/roles`
-- Header : null
-- Body :
-
-```json
-{
-  "id": "number",
-  "nama": "string"
-}
-```
-
-Response :
-
-```json
-{
   "meta": {
     "code": "number",
     "message": "string",
@@ -64,7 +95,7 @@ Response :
 }
 ```
 
-### update status
+### PETUGAS
 
 - Method : PUT
 - Endpoint : `/api/v1/akses/roles/status`
@@ -232,11 +263,11 @@ Response :
 }
 ```
 
-## MASTER
+### MASTER
 
 ### MATA PELAJARAN
 
-#### TAMBAH MATA PELAJARAN
+## TAMBAH MATA PELAJARAN
 
 Request :
 
@@ -266,7 +297,7 @@ Response :
 }
 ```
 
-#### EDIT MATA PELAJARAN
+## EDIT MATA PELAJARAN
 
 Request :
 
@@ -296,7 +327,7 @@ Response :
 }
 ```
 
-#### GET LIST MATA PELAJARAN
+## GET LIST MATA PELAJARAN
 
 Request :
 
@@ -331,7 +362,7 @@ Response :
 }
 ```
 
-#### GET DETAIL MATA PELAJARAN
+## GET DETAIL MATA PELAJARAN
 
 Request :
 
@@ -362,7 +393,7 @@ Response :
 }
 ```
 
-#### DELETE BY ID MATA PELAJARAN
+## DELETE BY ID MATA PELAJARAN
 
 Request :
 
@@ -385,7 +416,7 @@ Response :
 
 ### KURIKULUM
 
-#### TAMBAH KURIKULUM
+## TAMBAH KURIKULUM
 
 Request :
 
@@ -417,7 +448,7 @@ Response :
 }
 ```
 
-#### EDIT Kurikulum
+## EDIT Kurikulum
 
 Request :
 
@@ -449,7 +480,7 @@ Response :
 }
 ```
 
-#### GET LIST KURIKULUM
+## GET LIST KURIKULUM
 
 Request :
 
@@ -486,11 +517,11 @@ Response :
 }
 ```
 
-#### GET DETAIL KURIKULUM
+## GET DETAIL KURIKULUM
 
 Request :
 
-- Method : GET
+- Method : PUT
 - Endpoint : `/api/v1/kurikulum/${params.idKurikulum}`,
 - Header : null
 - Body : null
@@ -556,7 +587,7 @@ Response :
 }
 ``` -->
 
-#### TAMBAH BAB
+## TAMBAH BAB
 
 Request :
 
@@ -590,7 +621,7 @@ Response :
 }
 ```
 
-#### EDIT BAB
+## EDIT BAB
 
 Request :
 
@@ -624,7 +655,7 @@ Response :
 }
 ```
 
-#### GET LIST BAB
+## GET LIST BAB
 
 Request :
 
@@ -664,7 +695,7 @@ Response :
 }
 ```
 
-#### GET DETAIL BAB
+## GET DETAIL BAB
 
 Request :
 
@@ -706,7 +737,7 @@ Response :
 
 ### SILABUS
 
-#### GET TAHUN AJARAN
+## GET TAHUN AJARAN
 
 Request :
 
@@ -733,7 +764,7 @@ Request :
 }
 ```
 
-#### GET TINGKAT KELAS
+## GET TINGKAT KELAS
 
 Request :
 
@@ -760,7 +791,7 @@ Request :
 }
 ```
 
-#### GET Layanan/JENIS KELAS
+## GET Layanan/JENIS KELAS
 
 Request :
 
@@ -787,7 +818,7 @@ Request :
 }
 ```
 
-#### GET KELOMPOK UJIAN
+## GET KELOMPOK UJIAN
 
 Request :
 
@@ -814,7 +845,7 @@ Request :
 }
 ```
 
-#### TAMBAH SILABUS
+## TAMBAH SILABUS
 
 Request :
 
@@ -849,7 +880,7 @@ Request :
 }
 ```
 
-#### GET LIST SILABUS
+## GET LIST SILABUS
 
 Request :
 
@@ -886,7 +917,7 @@ Request :
 }
 ```
 
-#### GET DETAIL SILABUS
+## GET DETAIL SILABUS
 
 Request :
 
@@ -935,7 +966,7 @@ Request :
 
 ### MATA AJAR
 
-#### TAMBAH MATA AJAR
+## TAMBAH MATA AJAR
 
 Request :
 
@@ -965,7 +996,7 @@ Response :
 }
 ```
 
-#### EDIT MATA AJAR
+## EDIT MATA AJAR
 
 Request :
 
@@ -995,7 +1026,7 @@ Response :
 }
 ```
 
-#### GET LIST MATA AJAR
+## GET LIST MATA AJAR
 
 Request :
 
@@ -1030,7 +1061,7 @@ Response :
 }
 ```
 
-#### GET DETAIL MATA AJAR
+## GET DETAIL MATA AJAR
 
 Request :
 
@@ -1061,11 +1092,11 @@ Response :
 }
 ```
 
-## SOAL
+### SOAL
 
-### SUMBER SOAL
+## SUMBER SOAL
 
-#### GET JENIS SUMBER SOAL
+## GET JENIS SUMBER SOAL
 
 Request :
 
@@ -1092,7 +1123,7 @@ Request :
 }
 ```
 
-#### TAMBAH SUMBER SOAL
+## TAMBAH SUMBER SOAL
 
 Request :
 
@@ -1121,7 +1152,7 @@ Response :
 }
 ```
 
-#### EDIT SUMBER SOAL
+## EDIT SUMBER SOAL
 
 Request :
 
@@ -1150,7 +1181,7 @@ Response :
 }
 ```
 
-#### GET LIST SUMBER SOAL
+## GET LIST SUMBER SOAL
 
 Request :
 
@@ -1185,7 +1216,7 @@ Response :
 }
 ```
 
-#### GET DETAIL ISI KODE SUMBER
+## GET DETAIL ISI KODE SUMBER
 
 Request :
 
@@ -1227,7 +1258,7 @@ Response :
 
 ### WACANA
 
-#### GET LIST WACANA
+## GET LIST WACANA
 
 Request :
 
@@ -1262,7 +1293,7 @@ Response :
 }
 ```
 
-#### GET DETAIL WACANA
+## GET DETAIL WACANA
 
 Request :
 
@@ -1293,7 +1324,7 @@ Response :
 }
 ```
 
-#### TAMBAH WACANA
+## TAMBAH WACANA
 
 Request :
 
@@ -1322,7 +1353,7 @@ Response :
 }
 ```
 
-#### UPDATE WACANA
+## UPDATE WACANA
 
 Request :
 
@@ -1351,7 +1382,7 @@ Response :
 }
 ```
 
-#### HAPUS WACANA
+## HAPUS WACANA
 
 Request :
 
@@ -1363,6 +1394,7 @@ Request :
 Response :
 
 ```json
+{ "data":null,
   "meta": {
     "code": "number",
     "message": "string",
@@ -1371,7 +1403,7 @@ Response :
 }
 ```
 
-### UPLOAD VIDEO
+## UPLOAD VIDEO
 
 Request :
 
@@ -1402,13 +1434,12 @@ Response :
 }
 ```
 
-### MENGISI SOAL
-
-#### getSoal by bab
+# MENGISI SOAL
+## getSoal by bab
 Request :
 
 - Method : get
-- Endpoint : `/api/v1/mengisiSoal/bab/soal?idbab={idbab}`,
+- Endpoint : `/api/v1/mengisiSoal/bab/soal?idbab={idbab}&keyword={}&query`,
 - Header : null
 
 Response :
@@ -1448,9 +1479,7 @@ Response :
   }
 }
 ```
-
-
-#### getSoal by id
+## getSoal by id
 Request :
 
 - Method : get
@@ -1494,9 +1523,7 @@ Response :
   }
 }
 ```
-
-
-#### Create Soal By id soal
+## Create Soal By id soal
 
 Request :
 
@@ -1546,7 +1573,7 @@ Response :
 }
 ```
 
-#### edit Soal By id soal
+## edit Soal By id soal
 
 Request :
 
@@ -1598,7 +1625,7 @@ Response :
 ```
 
 
-#### Delete Soal By id soal
+## Delete Soal By id soal
 
 Request :
 
@@ -1756,9 +1783,9 @@ Response :
 
 
 
-### Target Pengerjaan Soal
+# Target Pengerjaan Soal
 
-#### getTarget by tahun ajaran dan Tingkat Sekolah Kelas
+## getTarget by tahun ajaran dan Tingkat Sekolah Kelas
 Request :
 
 - Method : get
@@ -1790,7 +1817,7 @@ Response :
 ```
 
 
-#### getTarget by id
+## getTarget by id
 Request :
 
 - Method : get
@@ -1821,7 +1848,7 @@ Response :
 }
 ```
 
-#### create Target Pengerjaan
+## create Target Pengerjaan
 Request :
 
 - Method : POST
@@ -1854,7 +1881,7 @@ Response :
 }
 ```
 
-#### Edit Target Pengerjaan
+## Edit Target Pengerjaan
 Request :
 
 - Method : PUT
@@ -1888,7 +1915,7 @@ Response :
 ```
 
 
-#### Edit Target Pengerjaan
+## Delete Target Pengerjaan
 Request :
 
 - Method : Delete
@@ -1910,11 +1937,11 @@ Response :
 ```
 
 
-## Paket dan Bundel Soal
+# Paket dan Bundel Soal
 
-### bundel soal
+## bundel soal
 
-#### get list bundel soal
+## get list bundel soal
 Request :
 
 - Method : GET
@@ -1954,7 +1981,7 @@ Response :
 }
 ```
 
-#### get bundel soal by id
+## get bundel soal by id
 Request :
 
 - Method : GET
@@ -1991,7 +2018,7 @@ Response :
 }
 ```
 
-#### Create bundel soal
+## Create bundel soal
 Request :
 
 - Method : POST
@@ -2031,7 +2058,7 @@ Response :
 }
 ```
 
-#### Update bundel soal
+## Update bundel soal
 Request :
 
 - Method : PUT
@@ -2071,9 +2098,7 @@ Response :
   }
 }
 ```
-
-
-#### Delete bundel soal
+## Delete bundel soal
 Request :
 
 - Method : Delete
@@ -2093,10 +2118,9 @@ Response :
   }
 }
 ```
+# Paket Soal   
 
-### Paket Soal   
-
-#### get List Paket soal 
+## get List Paket soal 
 Request :
 
 - Method : GET
@@ -2132,7 +2156,7 @@ Response :
 }
 ```
 
-#### get Paket soal by id Paket
+## get Paket soal by id Paket
 Request :
 
 - Method : GET
@@ -2168,7 +2192,7 @@ Response :
 }
 ```
 
-#### Create Paket soal 
+## Create Paket soal 
 Request :
 
 - Method : POST
@@ -2202,7 +2226,7 @@ Response :
 ```
 
 
-#### Edit Paket soal 
+## Edit Paket soal 
 Request :
 
 - Method : PUT
@@ -2238,7 +2262,7 @@ Response :
 ```
 
 
-#### Delete Paket soal 
+## Delete Paket soal 
 Request :
 
 - Method : Delete
@@ -2261,11 +2285,11 @@ Response :
 ```
 
 
-## BUKU
+# BUKU
 
-### Buku Teori
+## Buku Teori
 
-#### Get List Bab
+## Get List Bab
 Request :
 
 - Method : GET
@@ -2296,7 +2320,7 @@ Response :
 ```
 
 
-#### Get List buku teori by kode bab
+## Get List buku teori by kode bab
 Request :
 
 - Method : GET
@@ -2329,7 +2353,7 @@ Response :
 }
 ```
 
-#### create isi bab buku teori
+## create isi bab buku teori
 Request :
 
 - Method : POST
@@ -2359,7 +2383,7 @@ Response :
 }
 ```
 
-#### Edit isi bab buku teori
+## Edit isi bab buku teori
 Request :
 
 - Method : PUT
@@ -2388,8 +2412,7 @@ Response :
   }
 }
 ```
-
-#### Delete isi bab buku teori
+## Delete isi bab buku teori
 Request :
 
 - Method : Delete
@@ -2418,14 +2441,13 @@ Response :
   }
 }
 ```
+# Membuat BUKU
 
-### Membuat BUKU
-
-#### Get list BUKU
+## Get list BUKU
 Request :
 
 - Method : Get
-- Endpoint : `/api/v1/buku?tahunajaran={ta}&kurikulum={kurikulum}&tingkatkelas={tk}&jenis={jenis}&semester={smt}`
+- Endpoint : `/api/v1/buku?tahunajaran={value}&kurikulum={value}&tingkatkelas={value}&jenis={value}&semester={value}`
 - Header : null
 - Body : 
 
@@ -2458,8 +2480,7 @@ Response :
   }
 }
 ```
-
-#### create Buku
+## create Buku
 Request :
 
 - Method : Post
@@ -2494,7 +2515,7 @@ Response :
 }
 ```
 
-#### Edit Buku
+## Edit Buku
 Request :
 
 - Method : PUT
@@ -2529,7 +2550,7 @@ Response :
 }
 ```
 
-#### Delete Buku
+## Delete Buku
 Request :
 
 - Method : delete
@@ -2549,10 +2570,9 @@ Response :
   }
 }
 ```
+# isi Buku
 
-#### isi Buku
-
-##### Get Isi Buku
+## Get Isi Buku
 Request :
 
 - Method : Get
@@ -2581,7 +2601,7 @@ Response :
   }
 }
 ```
-##### Update Isi Buku
+## set Isi Buku
 Request :
 
 - Method : PUT
@@ -2609,9 +2629,8 @@ Response :
 ```
 
 
-### produk BUKU
-
-#### Get Produk Buku
+# produk BUKU
+## Get Produk Buku
 Request :
 
 - Method : Get
@@ -2638,7 +2657,7 @@ Response :
   }
 }
 ```
-##### Tambah Produk Buku
+## Tambah Produk Buku
 Request :
 
 - Method : PUT
@@ -2665,7 +2684,7 @@ Response :
   }
 }
 ```
-#### Delete Produk Buku
+## Delete Produk Buku
 Request :
 
 - Method : Delete
@@ -2688,9 +2707,9 @@ Response :
 ```
 
 
-### Buku Teaser
+# Buku Teaser
 
-#### list Buku Teaser
+## list Buku Teaser
 Request :
 
 - Method : Get
@@ -2726,7 +2745,7 @@ Response :
 }
 ```
 
-#### Tambah Buku Teaser
+## Tambah Buku Teaser
 Request :
 
 - Method : POST
@@ -2756,9 +2775,7 @@ Response :
   }
 }
 ```
-
-
-#### Edit Buku Teaser
+## Edit Buku Teaser
 Request :
 
 - Method : Put
@@ -2788,9 +2805,7 @@ Response :
   }
 }
 ```
-
-
-#### Delete Buku Teaser
+## Delete Buku Teaser
 Request :
 
 - Method : Delete
@@ -2812,10 +2827,8 @@ Response :
 }
 ```
 
- #### get List nama BUKU 
-
- // untuk Mengambil kode buku saat menambahkan di teaser
-
+ ## get List nama BUKU 
+ ### untuk Mengambil kode buku saat menambahkan di teaser
  Request :
 
 - Method : Get
@@ -4252,7 +4265,7 @@ Response :
 
 ### JPMP
 
-#### Get List JPMP
+## Get List JPMP
 Request :
 
 - Method : Get
@@ -4297,7 +4310,7 @@ Response :
 }
 ```
 
-#### Get Detail JPMP
+## Get Detail JPMP
 Request :
 
 - Method : Get
@@ -4332,9 +4345,7 @@ Response :
   }
 }
 ```
-
-
-#### Download Tamplate JPMP
+## Download Tamplate JPMP
 Request :
 
 - Method : Get
@@ -4355,9 +4366,7 @@ Response :
   }
 }
 ```
-
-
-#### Download Tamplate JPMP Detail
+## Download Tamplate JPMP Detail
 Request :
 
 - Method : Get
@@ -4379,7 +4388,7 @@ Response :
 }
 ```
 
-#### upload Tamplate JPMP 
+## upload Tamplate JPMP 
 Request :
 
 - Method : POST
@@ -4406,9 +4415,7 @@ Response :
   }
 }
 ```
-
-
-#### upload Tamplate JPMP Detail
+## upload Tamplate JPMP Detail 
 Request :
 
 - Method : POST
@@ -4436,7 +4443,7 @@ Response :
 }
 ```
 
-#### Set Aktif/tidak di JPMP 
+## Set Aktif/tidak di JPMP 
 Request :
 
 - Method : Get
@@ -4470,7 +4477,7 @@ Response :
 
 ### JPMP KELAS
 
-#### Get Penanda
+## Get Penanda
 Request :
 
 - Method : GET
@@ -4496,13 +4503,37 @@ Response :
   }
 }
 ```
-
-
-#### Get Zona
+## Get Zona
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1//zona?penanda={idPenanda}&&keyword={value}`,
+- Endpoint : `/api/v1/zona?penanda={idPenanda}&&keyword={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+     {
+            "id": "int",
+            "nama": "String"
+        },
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+## Get Gedung
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1//zona?zona={idzona}&&keyword={value}`,
 - Header : null
 - Body : null
 
@@ -4525,12 +4556,11 @@ Response :
 }
 ```
 
-
-#### Get Gedung
+## Get JPMP Kelas
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1//zona?penanda={idPenanda}&&keyword={value}`,
+- Endpoint : `/api/v1/jpmpkelas?gedung={idgedung}&tingkatkelas={tingkatKelas}&tahunajaran={tahunAjaran}`,
 - Header : null
 - Body : null
 
@@ -4539,9 +4569,90 @@ Response :
 ```json
 {
   "data": [
-     {
+        {
+            "c_IdKelas": "int",
+            "c_NamaKelas": "String",
+            "c_TanggalStart": "String, date",
+            "c_TanggalBerakhir": "String, date",
+            "c_TanggalLaunching": "String, date",
+            "c_TanggalRunning": "String, date",
+            "c_Status": "String, date",
+            "c_HariBelajar": "String, date",
+            "c_SingkatanLayanan":"String, date",
+            "c_status_validator_kacap":"bolean",
+            "c_status_validator_BMP":"bolean",
+            "c_Singkatan": "String, date",
+            "c_JenisKelas": "String, date",
+            "c_Data": "[{\"HB\": \"SELASA(2)-JUM'AT(2)\", \"ID\": 42963, \"NM\": \"11 IPA REGULER 4 Pert K13 REVISI\", \"TP\": \"2023/2024\", \"SMT\": \"1\", \"TOT\": 80, \"AWAL\": \"2023-07-11\", \"JPPM\": 4, \"AKHIR\": \"2023-12-16\", \"DETOT\": {\"KBM KODING\": 73, \"PENGARAHAN\": 2, \"PEMBEKALAN UTBK\": 2, \"GOA (DI LUAR KBM)\": 1, \"TOBK (DI LUAR KBM)\": 12, \"RESPONSI (DI LUAR KBM)\": 0, \"KAPITA SELEKTA THE KING\": 2, \"PEMBAHASAN PEMBEKALAN UTBK\": 1}, \"KEPNG\": null, \"PTACC\": \"\", \"PTPNG\": null, \"STPNG\": \"T\", \"TGACC\": null, \"TGPNG\": null, \"KETERANGAN\": null}]",
+            //   [{
+//     "HB": "SELASA(2)-JUM'AT(2)",
+//     "ID": 42963,
+//     "NM": "11 IPA REGULER 4 Pert K13 REVISI",
+//     "TP": "2023/2024",
+//     "SMT": "1",
+//     "TOT": 80,
+//     "AWAL": "2023-07-11",
+//     "JPPM": 4,
+//     "AKHIR": "2023-12-16",
+//     "DETOT": {
+//       "KBM KODING": 73,
+//       "PENGARAHAN": 2,
+//       "PEMBEKALAN UTBK": 2,
+//       "GOA (DI LUAR KBM)": 1,
+//       "TOBK (DI LUAR KBM)": 12,
+//       "RESPONSI (DI LUAR KBM)": 0,
+//       "KAPITA SELEKTA THE KING": 2,
+//       "PEMBAHASAN PEMBEKALAN UTBK": 1
+//     },
+//     "KEPNG": null,
+//     "PTACC": "",
+//     "PTPNG": null,
+//     "STPNG": "T",
+//     "TGACC": null,
+//     "TGPNG": null,
+//     "KETERANGAN": null
+//   }
+// ]
+        }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+## Get List Juklak
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/juklak?tahunajaran={value}&tingkatkelas={value}&semester={value}&jenislayanan={value}&status={Value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+         {
             "id": "int",
-            "nama": "String"
+            "nama": "String",
+            "c_NamaJuklak": "String",
+            "c_HariBelajar": "String",
+            "c_DetailTotalPertemuan": "{\"KBM KODING\": 73, \"PENGARAHAN\": 2, \"PEMBEKALAN UTBK\": 2, \"GOA (DI LUAR KBM)\": 1, \"TOBK (DI LUAR KBM)\": 12, \"RESPONSI (DI LUAR KBM)\": 0, \"KAPITA SELEKTA THE KING\": 2, \"PEMBAHASAN PEMBEKALAN UTBK\": 1}"
+            //   contoh kalau di ubah          {
+            // "KBM KODING": 73,
+            // "PENGARAHAN": 2,
+            // "PEMBEKALAN UTBK": 2,
+            // "GOA (DI LUAR KBM)": 1,
+            // "TOBK (DI LUAR KBM)": 12,
+            // "RESPONSI (DI LUAR KBM)": 0,
+            // "KAPITA SELEKTA THE KING": 2,
+            // "PEMBAHASAN PEMBEKALAN UTBK": 1
+            // }
+
         },
   ],
 
@@ -4553,101 +4664,19 @@ Response :
 }
 ```
 
-
-## Kunci Jawaban
-
-### Jenis Produk
-
-Request :
-
-- Method : GET
-- Endpoint : `/api/v1/produk`
-- Header : null
-
-Response :
-
-```json
-{
-  "data": {
-    "id": "number, unique",
-    "nama_produk": "string",
-    "createdAt": "date",
-    "updatedAt": "date"
-  },
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### Kelompok Ujian
-
-Request :
-
-- Method : GET
-- Endpoint : `/api/v1/kelompok-ujian`
-- Header : null
-
-Response :
-
-```json
-{
-  "data": {
-    "id": "number, unique",
-    "nama_kelompok_ujian": "string",
-    "createdAt": "date",
-    "updatedAt": "date"
-  },
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### Kode Paket
-
-Request :
-
-- Method : GET
-- Endpoint : `/api/v1/kode-paket`
-- Header : null
-
-Response :
-
-```json
-{
-  "data": {
-    "id": "number, unique",
-    "nama_kode_paket": "string",
-    "createdAt": "date",
-    "updatedAt": "date"
-  },
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### Tambah Kunci Jawaban
+## Buat JPMP Kelas
 
 Request :
 
 - Method : POST
-- Endpoint : `/api/v1/kunci-jawaban`
+- Endpoint : `/api/v1/jpmpkelas`,
 - Header : null
-- Body :
-
+- Body : 
 ```json
 {
-  "id_jenis_produk": "number",
-  "id_kelompok_ujian": "number",
-  "id_kode_paket": "number"
+  "kelas": "int",
+  "semester": "int",
+  "kodejuklak": "int"
 }
 ```
 
@@ -4655,19 +4684,8 @@ Response :
 
 ```json
 {
-  "data": {
-    "id_kunci_jawaban": "number, unique",
-    "no_urut": "string | number",
-    "id_soal": "string | number",
-    "kelompok_ujian": "string",
-    "bab": "string | number",
-    "kode_sumber": "string | number",
-    "tipe_soal": "string | number",
-    "level": "string | number",
-    "kunci_jawaban": "string | number",
-    "createdAt": "date",
-    "updatedAt": "date"
-  },
+  "data": null,
+
   "meta": {
     "code": "number",
     "message": "string",
@@ -4676,3 +4694,166 @@ Response :
 }
 ```
 
+## Delete JPMP Kelas
+
+Request :
+
+- Method : Delete
+- Endpoint : `/api/v1/jpmpkelas/{kodeJuklakKelas}`,
+- Header : null
+- Body : 
+
+
+Response :
+
+```json
+{
+  "data": null,
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+## Get Pengajuan
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/jpmpkelas/getpengajuan?kodejuklak={value}&kelas={value}&semester={value}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+        {
+ 
+    "startdate": "2023-08-25",
+    "enddate": "2023-09-24",
+    "Default": [
+        {
+                "id": "number",
+                "nama": "String",
+                "Jumlah": "number",
+        }  
+    ],
+      "Pengajuan": [
+        {
+                "id": "number",
+                "nama": "String",
+                "Jumlah": "number",
+        }  
+    ]
+
+        }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+### KUNCI JAWABAN
+
+## GET JENIS PRODUK
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/jenis-produk`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "idProduk": "string",
+      "namaProduk": "string"
+    }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## GET KODE PAKET
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/kode-paket`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "idProduk": "string",
+      "namaPaket": "string"
+    }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+
+
+## GET LIST KUNCI JAWABAN
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/kunci-jawaban/${params.jenisProduk}/${params.kelompokUjian}/${params.kodePaket}`,
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string",
+      "noUrut": "number",
+      "idSoal": "string",
+      "kelompokUjian": "string",
+      "bab": "string",
+      "kodeSumber": "string",
+      "tipeSoal": "string",
+      "level": "string",
+      "kunciJawaban": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
