@@ -117,3 +117,32 @@ Response :
   }
 }
 ```
+
+### post produk
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/produk-kelompok/produkpengajar/:idkelompok`
+- Header : null
+- Body (ArrayObj || Obj) :
+
+```json
+{
+  "idProduk": "number, req",
+  "startDate": "date, req",
+  "endDate": "date, req"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
