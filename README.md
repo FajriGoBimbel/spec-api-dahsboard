@@ -115,93 +115,115 @@ Response :
 }
 ```
 
-## PETUGAS
+## Akses Petugas
 
-### TAMBAH PETUGAS
+### get all
 
-Request :
-
-- Method : POST
-- Endpoint : `/api/v1/petugas`,
-- Header : null
-- Body :
-
-```json
-{
-  "nik": "string",
-  "namaPetugas": "string",
-  "role": "string"
-}
-```
-
-Response :
-
-```json
-{
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### EDIT PETUGAS
-
-Request :
-
-- Method : PUT
-- Endpoint : `/api/v1/petugas`,
-- Header : null
-- Body :
-
-```json
-{
-  "nik": "string",
-  "namaPetugas": "string",
-  "role": "string"
-}
-```
-
-Response :
-
-```json
-{
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-### GET LIST PETUGAS
-
-Request :
+Request
 
 - Method : GET
-- Endpoint : `/api/v1/petugas/${params.page/${params.search}}`,
-- Header : null
-- Body : null
+- Endpoint : `/api/v1/akses/petugas?sortby=${id|nama|namarole|status|akundefault}&sort=${asc|desc}&page=${page}&limit=${limit}`
 
-Response :
+Response
 
 ```json
 {
   "data": [
     {
       "id": "string",
-      "nik": "string",
-      "namaPetugas": "string",
-      "role": "string",
+      "nama": "string",
+      "idrole": "number",
+      "namarole": "string",
       "status": "string",
-      "createdAt": "date",
-      "updatedAt": "date"
+      "akundefault": "string"
     }
   ],
-  "count": "number",
-  "page": "number",
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
 
+### update role
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/akses/petugas/:id`
+- Body :
+
+```json
+{
+  "roleid": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### update status petugas
+
+- Method : PUT
+- Endpoint : `/api/v1/akses/petugas/status/:id`
+- Header : null
+- Body :
+
+```json
+{
+  "status": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### create petugas
+
+Request
+
+- Method : POST
+- Endpoint : `/api/v1/akses/petugas`
+- Header : null
+- Body :
+
+```json
+{
+  "id": "string",
+  "nama": "string",
+  "role": "string",
+}
+```
+
+Response :
+
+```json
+{
   "meta": {
     "code": "number",
     "message": "string",
