@@ -637,25 +637,22 @@ Response :
 }
 ```
 
----
-
-**NOTE**
-Tidak ada di gokasir existing.
-
-Ex :
-
-##### GET METODE
-  - Kartu debit
-  - Kartu kredit
-  - transfer
-##### GET JENIS
-  - Antar Rekening
-  - Payment Gateway
-  - Virtual Account
-#### GET TIPE 
-  - NOMINAL
-  - PERSEN
----
+>**NOTE**
+>Tidak ada di gokasir existing.
+>
+>Ex :
+>
+>##### GET METODE
+>  - Kartu debit
+>  - Kartu kredit
+>  - transfer
+>##### GET JENIS
+>  - Antar Rekening
+>  - Payment Gateway
+>  - Virtual Account
+>#### GET TIPE 
+>  - NOMINAL
+>  - PERSEN
 
 ### get metode
 
