@@ -637,22 +637,27 @@ Response :
 }
 ```
 
->**NOTE**
->Tidak ada di gokasir existing.
+> **NOTE**
+> Tidak ada di gokasir existing.
 >
->Ex :
+> Ex :
 >
->##### GET METODE
->  - Kartu debit
->  - Kartu kredit
->  - transfer
->##### GET JENIS
->  - Antar Rekening
->  - Payment Gateway
->  - Virtual Account
->#### GET TIPE 
->  - NOMINAL
->  - PERSEN
+> ##### GET METODE
+>
+> - Kartu debit
+> - Kartu kredit
+> - transfer
+>
+> ##### GET JENIS
+>
+> - Antar Rekening
+> - Payment Gateway
+> - Virtual Account
+>
+> #### GET TIPE
+>
+> - NOMINAL
+> - PERSEN
 
 ### get metode
 
@@ -704,9 +709,9 @@ Response :
 }
 ```
 
-### get tipe 
+### get tipe
 
-Request : 
+Request :
 
 - Method : GET
 - Endpoint : `api/v1/gokasir/list/tipe?search=${name}`
@@ -721,6 +726,107 @@ Response :
       "name": "string"
     }
   ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+> **_NOTE:_** hanya prediksi, belum di coba di gokasir existing.
+
+### add list mdr
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/mdr/add`
+- Body :
+
+```json
+{
+  "id_metode": "number",
+  "id_jenis": "number",
+  "id_bank_go": "number",
+  "id_bank_go": "number",
+  "id_bank_customer": "number",
+  "id_tipe": "number",
+  "id_tipe": "number",
+  "persen": "number",
+  "nominal": "number",
+  "kode_rekening": "number",
+  "keterangan": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### edit list mdr
+
+Request :
+
+- Method : PATCH
+- Endpoint : `api/v1/gokasir/mdr/edit/:id`
+- Body :
+
+```json
+{
+  "id_mdr": "number",
+  "id_metode": "number",
+  "id_jenis": "number",
+  "id_bank_go": "number",
+  "id_bank_go": "number",
+  "id_bank_customer": "number",
+  "id_tipe": "number",
+  "id_tipe": "number",
+  "persen": "number",
+  "nominal": "number",
+  "kode_rekening": "number",
+  "keterangan": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### delete list mdr
+
+Request :
+
+- Method : PATCH
+- Endpoint : `api/v1/gokasir/mdr/delete/:id`
+- Body :
+
+```json
+{
+  "id_mdr": "number"
+}
+```
+
+Response :
+
+```json
+{
   "meta": {
     "code": "number",
     "message": "string",
