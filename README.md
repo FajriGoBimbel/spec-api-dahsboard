@@ -1,7 +1,10 @@
 # API Spec
 
-# Komponen Produk
-## Bidang
+# Module Go Produk
+
+## Komponen Produk
+
+### Bidang
 Request :
 
 - Method : GET
@@ -26,7 +29,7 @@ Response :
         }
     }
 ```
-## Get Komponen Produk
+### Get Komponen Produk
 
 Request :
 
@@ -64,7 +67,7 @@ Response :
         }
     }
 ```
-## Create Komponen Produk
+### Create Komponen Produk
 
 Request :
 
@@ -97,7 +100,7 @@ Response :
         }
     }
 ```
-## Update Komponen Produk
+### Update Komponen Produk
 
 Request :
 
@@ -130,7 +133,7 @@ Response :
         }
     }
 ```
-## Delete Komponen Produk
+### Delete Komponen Produk
 
 Request :
 
@@ -153,7 +156,7 @@ Response :
         }
     }
 ```
-## Update Status Komponen Produk
+### Update Status Komponen Produk
 
 Request :
 
@@ -178,7 +181,7 @@ Response :
         }
     }
 ```
-## Validasi Komponen Produk
+### Validasi Komponen Produk
 
 Request :
 
@@ -208,8 +211,9 @@ Response :
     }
 ```
 
-# Komponen Produk MIX
-## get List Produk Mix
+## Komponen Produk MIX
+
+### get List Produk Mix
 
 Request :
 
@@ -253,7 +257,7 @@ Response :
     }
 ```
 
-## get Detail Produk Mix
+### get Detail Produk Mix
 
 Request :
 
@@ -289,7 +293,7 @@ Response :
         }
     }
 ```
-## Create Produk Mix
+### Create Produk Mix
 
 Request :
 
@@ -325,7 +329,9 @@ Response :
         }
     }
 ```
-## Update Produk Mix
+
+
+### Update Produk Mix
 
 Request :
 
@@ -362,7 +368,9 @@ Response :
         }
     }
 ```
-## Delete Produk Mix
+
+
+### Delete Produk Mix
 
 Request :
 
@@ -383,7 +391,7 @@ Response :
     }
 ```
 
-## Update Status Komponen Produk MIX
+### Update Status Komponen Produk MIX
 
 Request :
 
@@ -411,7 +419,7 @@ Response :
 
 
 
-## Validasi/Pengesahan Komponen Produk
+### Validasi/Pengesahan Komponen Produk
 
 Request :
 
@@ -441,9 +449,9 @@ Response :
     }
 ```
 
-# jenis Diskon
+## jenis Diskon
 
-## Get List Jenis diskon
+### Get List Jenis diskon
 
 Request :
 
@@ -482,7 +490,7 @@ Response :
         }
     }
 ```
-## Create Jenis diskon
+### Create Jenis diskon
 
 Request :
 
@@ -517,7 +525,7 @@ Response :
 ```
 
 
-## Edit Jenis diskon
+### Edit Jenis diskon
 
 Request :
 
@@ -552,7 +560,7 @@ Response :
     }
 ```
 
-## Delete Jenis diskon
+### Delete Jenis diskon
 
 Request :
 
@@ -576,7 +584,7 @@ Response :
 
 
 
-## Update Status jenis diskon
+### Update Status jenis diskon
 
 Request :
 
@@ -602,7 +610,7 @@ Response :
     }
 ```
 
-## Validasi Jenis Diskon
+### Validasi Jenis Diskon
 
 Request :
 
@@ -633,9 +641,9 @@ Response :
 ```
 
 
-# Jenis Diskon Kota
+## Jenis Diskon Kota
 
-## Get List jenis Diskon Kota
+### Get List jenis Diskon Kota
 Request :
 
 - Method : GET
@@ -684,7 +692,7 @@ Response :
     }
 ```
 
-## Get Data Produk MIX di DISKON
+### Get Data Produk MIX di DISKON
 Request :
 
 - Method : GET
@@ -710,7 +718,7 @@ Response :
     }
 ```
 
-## Get Data Produk di DISKON
+### Get Data Produk di DISKON
 Request :
 
 - Method : GET
