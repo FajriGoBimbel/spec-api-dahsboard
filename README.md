@@ -4724,7 +4724,7 @@ Response :
 Request :
 
 - Method : GET
-- Endpoint : `/api/v1/jpmpkelas/getpengajuan?kodejuklak={value}&kelas={value}&semester={value}`,
+- Endpoint : `/api/v1/jpmpkelas/pengajuan?kodejuklak={value}&kelas={value}&semester={value}`,
 - Header : null
 - Body : null
 
@@ -4763,8 +4763,92 @@ Response :
 }
 ```
 
+## Update Pengajuan
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/jpmpkelas/pengajuan`,
+- Header : null
+- Body : 
+```json
+{
+    "kodejuklak":"int",
+    "kelas":"int",
+    "semester": "int",
+    "detail":[
+                {
+            
+                "startdate": "2023-08-25",
+                "enddate": "2023-09-24",
+                "Default": [
+                    {
+                            "id": "number",
+                            "nama": "String",
+                            "Jumlah": "number",
+                    }  
+                ],
+                "Pengajuan": [
+                    {
+                            "id": "number",
+                            "nama": "String",
+                            "Jumlah": "number",
+                    }  
+                ]
+
+                    }
+            ]
+}
+```
+
+Response :
+
+```json
+{
+  "data": null,
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## validasi JPMP
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/jpmpkelas/validasi`,
+- Header : null
+- Body : 
+```json
+{
+    "kodejuklak":"int",
+    "kelas":"int",
+    "semester": "int",
+    "isDisetujui":"bolean",
+    "user_id": "String"
+}
+```
+
+Response :
+
+```json
+{
+  "data": null,
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
 
 ### KUNCI JAWABAN
+
+
 
 ## GET JENIS PRODUK
 
