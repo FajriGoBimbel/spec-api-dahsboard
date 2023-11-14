@@ -539,3 +539,195 @@ Response :
   }
 }
 ```
+
+## Dashboard
+
+### Dashboard Pusat
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/dashboard`
+
+Response :
+
+```json
+{
+  "result": true,
+  "data": {
+    "saldo": {
+      "SaldoSetor": "125.300.000",
+      "Tunggakan": "245.000.000"
+    },
+    "jumsis": [
+      {
+        "Id": "1",
+        "Kelas": "12 IPA",
+        "JmlSiswa": "100"
+      }
+    ],
+    "rekappenerimaan": {
+      "result": true,
+      "data": [
+        {
+          "RefBank": "Tunai",
+          "Nilai": "125300000",
+          "BiayaMDR": "0",
+          "NetKeGO": "125300000"
+        },
+        {
+          "RefBank": "BNI",
+          "Nilai": "261000000",
+          "BiayaMDR": "125000",
+          "NetKeGO": "260775000"
+        },
+        {
+          "RefBank": "BCA",
+          "Nilai": "300250000",
+          "BiayaMDR": "250000",
+          "NetKeGO": "300000000"
+        }
+      ],
+      "console": []
+    }
+  }
+}
+```
+
+## MDR
+
+### get list mdr
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/mdr?sortby=${metode|Jenis|NamaBankGO|NamaBankCustomer|Tipe|Persen|Nominal|Keterangan|KodeRekening}&sort=${asc|desc}&page=${page}&limit=${limit}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdMDR": "9",
+      "Metode": "INSTALLMENT 6 BULAN",
+      "Jenis": "Website",
+      "IdBankGO": "4",
+      "NamaBankGO": "MANDIRI",
+      "IdBankCustomer": "4",
+      "NamaBankCustomer": "MANDIRI",
+      "Tipe": "PERSEN",
+      "Persen": "4.00",
+      "Nominal": "0",
+      "Keterangan": "MANDIRI IPG",
+      "KodeRekening": "2102002"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
+
+---
+
+**NOTE**
+Tidak ada di gokasir existing.
+
+Ex :
+
+##### GET METODE
+  - Kartu debit
+  - Kartu kredit
+  - transfer
+##### GET JENIS
+  - Antar Rekening
+  - Payment Gateway
+  - Virtual Account
+#### GET TIPE 
+  - NOMINAL
+  - PERSEN
+---
+
+### get metode
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/metode?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get jenis
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/jenis?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get tipe 
+
+Request : 
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/tipe?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
