@@ -834,3 +834,102 @@ Response :
   }
 }
 ```
+
+## Go Expert
+
+### Registrasi
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/goexpert/registrasi?noregistrasi=${noreg}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "pembayaran": [
+        {
+          "NoRegistrasi": "050213114702",
+          "IdPembelian": "1886949",
+          "NamaLengkap": "NAJWALINA AZZAHRA",
+          "TahunAjaran": "2023/2024",
+          "NamaGedung": "PW 34",
+          "TanggalDaftar": "2023-10-03",
+          "SekolahKelas": "13 ALUMNI IPA",
+          "NamaKelas": "13-ALUMNI-R-N-ONLINE",
+          "IdBundling": "807135",
+          "NamaBundling": "TWT Gap Year Saintek GO Kreasi SNBT 23/24",
+          "StatusBayar": "LUNAS",
+          "HargaPT": "0",
+          "HargaJual": "2000000",
+          "TotalHarga": "2000000",
+          "Diskon": [
+            {
+              "id": 2336532,
+              "st": "Aktif",
+              "jml": 1000000
+            }
+          ],
+          "Pembayaran": [
+            {
+              "id": 8763815,
+              "byr": 0,
+              "jml": 0
+            },
+            {
+              "id": 8763816,
+              "byr": 1000000,
+              "jml": 1000000
+            },
+            {
+              "id": 8763817,
+              "byr": 0,
+              "jml": 0
+            }
+          ],
+          "JatuhTempo": null,
+          "HP": "082252344223",
+          "Email": "najwanet04@gmail.com",
+          "HPOrtu": "0811587750",
+          "EmailOrtu": "ghozali.mh@gmail.com",
+          "NoPerjanjian": null,
+          "TotalDiskon": 1000000,
+          "TotalPembayaran": 1000000,
+          "HarusBayar": 1000000,
+          "JumlahBayar": 1000000,
+          "Sisa": 0
+        }
+      ],
+      "gokreasi": [
+        {
+          "NoRegistrasi": "050213114702",
+          "Email": "najwanet04@gmail.com",
+          "NamaLengkap": "NAJWALINA AZZAHRA",
+          "IdSekolahKelas": "28",
+          "NamaSekolahKelas": "13 ALUMNI IPA",
+          "Siapa": "SISWA",
+          "Status": "aktif",
+          "NomorHP": "082252344223",
+          "IsDevice": "1",
+          "TerakhirLogin": "2023-10-03 12:32:43"
+        },
+        {
+          "NoRegistrasi": "050213114702",
+          "Email": "najwanet04@gmail.com",
+          "NamaLengkap": "NAJWALINA AZZAHRA",
+          "IdSekolahKelas": "28",
+          "NamaSekolahKelas": "13 ALUMNI IPA",
+          "Siapa": "ORTU",
+          "Status": "aktif",
+          "NomorHP": "0811587750",
+          "IsDevice": "1",
+          "TerakhirLogin": "2023-10-03 15:08:50"
+        }
+      ]
+    }
+  ]
+}
+```
