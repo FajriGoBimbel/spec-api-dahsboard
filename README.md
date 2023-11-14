@@ -1,5 +1,59 @@
 # API Spec
 
+## Dashboard
+
+### Dashboard Pusat
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/dashboard`
+
+Response :
+
+```json
+{
+  "result": true,
+  "data": {
+    "saldo": {
+      "SaldoSetor": "125.300.000",
+      "Tunggakan": "245.000.000"
+    },
+    "jumsis": [
+      {
+        "Id": "1",
+        "Kelas": "12 IPA",
+        "JmlSiswa": "100"
+      }
+    ],
+    "rekappenerimaan": {
+      "result": true,
+      "data": [
+        {
+          "RefBank": "Tunai",
+          "Nilai": "125300000",
+          "BiayaMDR": "0",
+          "NetKeGO": "125300000"
+        },
+        {
+          "RefBank": "BNI",
+          "Nilai": "261000000",
+          "BiayaMDR": "125000",
+          "NetKeGO": "260775000"
+        },
+        {
+          "RefBank": "BCA",
+          "Nilai": "300250000",
+          "BiayaMDR": "250000",
+          "NetKeGO": "300000000"
+        }
+      ],
+      "console": []
+    }
+  }
+}
+```
+
 ## Rekening
 
 ### get status
@@ -1275,56 +1329,671 @@ Response :
 ```
 
 
-## Dashboard
+## BASTUP
 
-### Dashboard Pusat
+### TAMBAH DATA BASTUP
 
 Request :
 
 - Method : POST
-- Endpoint : `api/v1/gokasir/dashboard`
+- Endpoint : `/api/v1/gokasir/bastup`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorBastup": "string",
+  "tanggalTerimaUang": "string",
+  "yangMenyerahkan": "string",
+  "fileDokumen": "string"
+}
+```
 
 Response :
 
 ```json
 {
-  "result": true,
-  "data": {
-    "saldo": {
-      "SaldoSetor": "125.300.000",
-      "Tunggakan": "245.000.000"
-    },
-    "jumsis": [
-      {
-        "Id": "1",
-        "Kelas": "12 IPA",
-        "JmlSiswa": "100"
-      }
-    ],
-    "rekappenerimaan": {
-      "result": true,
-      "data": [
-        {
-          "RefBank": "Tunai",
-          "Nilai": "125300000",
-          "BiayaMDR": "0",
-          "NetKeGO": "125300000"
-        },
-        {
-          "RefBank": "BNI",
-          "Nilai": "261000000",
-          "BiayaMDR": "125000",
-          "NetKeGO": "260775000"
-        },
-        {
-          "RefBank": "BCA",
-          "Nilai": "300250000",
-          "BiayaMDR": "250000",
-          "NetKeGO": "300000000"
-        }
-      ],
-      "console": []
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST BASTUP
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/bastup/${params.tanggalAwal}/${params.tanggalAkhir}/${params.status}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "NoBASTUP": "string",
+      "TanggalTerima": "date and time",
+      "NIKPenyetor": "string",
+      "NamaPenyetor": "string",
+      "NIKPenerima": "string",
+      "NamaPenerima": "string",
+      "NamaFile": "string",
+      "Status": "string",
+      "Jumlah": "number"
     }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### UBAH BASTUP
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/gokasir/bastup`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorBastup": "string",
+  "tanggalTerimaUang": "string",
+  "yangMenyerahkan": "string",
+  "fileDokumen": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA LIST SISWA BASTUP
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/siswabastup`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "namaSiswa": "string",
+      "jumlah": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### TAMBAH SISWA BERDASARKAN KODE BASTUP
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/gokasir/siswabastup`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorBastup": "string",
+  "namaSiswa": "string",
+  "jumlahUang": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### UPDATE STATUS LENGKAP dan TIDAK LENGKAP
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/gokasir/bastup/status/${params.kodeBastup}`
+- Header : null
+- Body :
+
+```json
+{
+  "status": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### KIRIM DATA BASTUP
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/gokasir/bastup/${params.kodeBastup}`
+- Header : null
+- Body :
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### DELETE DATA BASTUP
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/gokasir/bastup/${params.id}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE VALIDASI BASTUP
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/bastup/${params.tanggalAwal}/${params.tanggalAkhir}/${params.status}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "NoBASTUP": "string",
+      "TanggalTerima": "date and time",
+      "NIKPenyetor": "string",
+      "NamaPenyetor": "string",
+      "NIKPenerima": "string",
+      "NamaPenerima": "string",
+      "NamaFile": "string",
+      "Status": "string",
+      "Jumlah": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### UPDATE APPROVE BASTUP
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/gokasir/bastup/${params.id}`
+- Header : null
+- Body :
+
+```json
+{
+  "status": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## BASTPH
+
+### TAMBAH DATA BASTPH
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/gokasir/bastph`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorBashtph": "string",
+  "tanggalSerahTerima": "string",
+  "waktuSetoran": "string",
+  "jumlahCash": "number",
+  "penerimaSetoran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE TRANSAKSI BASTUP
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/bastup/transaksi/${params.tanggalAwal}/${params.tanggalAkhir}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "namaBundling": "string",
+      "noKwitansi": "string",
+      "noBastup": "string",
+      "tanggalTransaksi": "string",
+      "jumlahCash": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### GET DATA TABLE BASTPH
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/bastph/${params.tanggalAwal}/${params.tanggalAkhir}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "nomorBastph": "string",
+      "tanggalSerahTerima": "date and time",
+      "penerimaSetoran": "string",
+      "jenisSetoran": "string",
+      "jumlahCash": "string",
+      "status": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### DELETE DATA BASTPH
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/gokasir/bastph/${params.id}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### KIRIM DATA BASTPH
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/gokasir/bastph/${params.kodeBastph}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET DATA TABLE LIST VALIDASI BASHTPH
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/bastph/${params.tanggalAwal}/${params.tanggalAkhir}/${params.status}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string,unique",
+      "NoBASTPH": "string",
+      "TanggalSerahTerima": "date and time",
+      "NIKPenerima": "string",
+      "NamaPenerima": "string",
+      "Status": "string",
+      "JumlahPenerimaan": "string",
+      "JenisWaktuPenerimaan": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+## LSPH
+
+### TAMBAH DATA LSPH
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/gokasir/lsph`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorLsph": "string", // auto generated
+  "namaBank": "string",
+  "noRekening": "string",
+  "tanggalSetor": "date and time"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET LIST BANK
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/banks`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdBank": "string",
+      "NamaBank": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### GET ISI BASTPH BY KODE LPH
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/gokasir/lph/${params.kodeLph}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NoBASTPH": "string",
+      "TanggalSerahTerima": "date and time",
+      "JenisWaktuPenerimaan": "string",
+      "NIKPenyetor": "string",
+      "NamaPenyetor": "string",
+      "Status": "string",
+      "JumlahPenerimaan": "mumber",
+      "JumlahSetor": "number",
+      "SisaSetor": "number",
+      "RencanaSetor": "number"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string",
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "",
+    "order_by": "created_at",
+    "keyword": ""
+  }
+}
+```
+
+### TAMBAH RENCANA SETORAN BY KODE LSPH
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/gokasir/lsph/setsetoran/${params.kodeLsph}`
+- Header : null
+- Body :
+
+```json
+{
+  "nomorBastph": "string",
+  "sisaSetor": "number",
+  "rencanaSetor": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### KIRIM STATUS LSPH
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/gokasir/lsph/status/${params.kodeLsph}`
+- Header : null
+- Body :
+
+```json
+{
+  "status": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### DELETE DATA LSPH
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/gokasir/lsph/${params.kodeLsph}`
+- Header : null
+- Body : null
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
   }
 }
 ```
