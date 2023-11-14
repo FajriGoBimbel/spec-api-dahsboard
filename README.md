@@ -813,7 +813,7 @@ Response :
 
 Request :
 
-- Method : PATCH
+- Method : DELETE
 - Endpoint : `api/v1/gokasir/mdr/delete/:id`
 - Body :
 
