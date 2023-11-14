@@ -2337,3 +2337,243 @@ Response :
   ]
 }
 ```
+
+
+## Bimker
+
+### DAFTAR BIMKER
+
+#### get kewilayahan by kota
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/kewilayahanbykota`
+- Body :
+
+```json
+{
+  "id_kota": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKewilayahan": "3",
+      "NamaKewilayahan": "Cabang"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get komar
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/komar`
+- Body :
+
+```json
+{
+  "id_kewilayahan": "string",
+  "id_kota": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKomar": "727",
+      "NamaKomar": "L.U Adisucipto 134, Mt. Haryono 6, Moewardi 17"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### Daftar Bimker
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/daftarbimker/getdata?sortby=${Penanda|NamaKomar|Deskripsi|NamaSekolah|SekolahKelas|PerkiaraanJumSis|JumSis|TanggalAwal|TanggalAkhir|Status}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "id_kota": "string",
+  "id_kewilayahan": "string",
+  "id_komar": "string",
+  "status": "string",
+  "tahunajaran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKerjasama": "707",
+      "IdPenanda": "6",
+      "Penanda": "SURAKARTA",
+      "IdKomar": "2136",
+      "NamaKomar": "MT. Haryono 6",
+      "TahunAjaran": "2023/2024",
+      "NamaChannel": "Dra. Nurul Qomariah, M.Pd.",
+      "Telp": "081802599935",
+      "IsDenganSekolah": "1",
+      "IdSekolah": "219349",
+      "NamaSekolah": "MTSN 1 SURAKARTA",
+      "JenjangPendidikan": "MTs",
+      "IdDistrict": "199",
+      "District": "KOTA SURAKARTA",
+      "IdProvinsi": "15",
+      "Provinsi": "PROVINSI JAWA TENGAH",
+      "IdSekolahKelas": "7",
+      "SekolahKelas": "7 SMP UMUM",
+      "NilaiKerjasama": "52500000",
+      "TahapanPembayaran": "[{\"tahap\": 1, \"jumlah\": 30000000, \"tanggal\": \"2023-09-19\"}, {\"tahap\": 2, \"jumlah\": 22500000, \"tanggal\": \"2024-01-24\"}]",
+      "BiayaOperasional": "3000000",
+      "PerkiaraanJumSis": "30",
+      "Jumsis": "30",
+      "BiayaPerSiswa": "1750000",
+      "TglJatuhTempo1": "2023-09-19",
+      "Deskripsi": "BIMKER MTsN 1 SURAKARTA KELAS 7",
+      "TanggalAwal": "2023-09-19",
+      "TanggalAkhir": "2024-05-28",
+      "JumlahPertemuan": "56",
+      "JumlahPertemuanOffline": "56",
+      "JumlahPertemuanOnline": "0",
+      "JumlahTOBK": "3",
+      "JumlahTOBC": "0",
+      "Pengali": "1.00",
+      "PengaliReal": "1.00",
+      "IdBundling": "1222677",
+      "NamaBundling": "TWT 7 SMP Bimker MTsN 1 Surakarta KMerdeka 23/24",
+      "HargaPT": "0",
+      "HargaTotal": "1750000",
+      "FileMOU": "ff274912f1d12d2f9df0c673d7f030c8_230925073158.pdf",
+      "Status": "Setuju",
+      "Updater": "1302501109",
+      "LastUpdate": "2023-09-26 10:37:08"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get pembayaran bimker
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/daftarbimker/getpembayaranbimker?sortby=${TglJthTempo|JmlBayar}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "id_kerjasama": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "TglJthTempo": "2023-09-26",
+      "JmlBayar": "30000000",
+      "TglKadaluarsa": "-"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get daftar siswa bimker
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/daftarbimker/getdaftarsiswabimbker?sortby=${NamaSiswa|NamaKelas|JmlBayar}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "id_kerjasama": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NamaSiswa": "080525022801 - MUHAMMAD ABDULLAH ZAIN ZAIN",
+      "NamaKelas": "10-UMUM-R-B-32",
+      "JmlBayar": "2000000",
+      "BuktiPembayaran": ""
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get file MOU
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/daftarbimker/getfilemou/:id`
+- Body :
+
+```json
+{
+  "id_kerjasama": "number"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
