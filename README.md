@@ -2408,7 +2408,7 @@ Response :
 }
 ```
 
-#### Daftar Bimker
+#### get data Bimker
 
 Request :
 
@@ -2570,6 +2570,997 @@ Response :
 
 ```json
 {
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### BUAT BIMKER
+
+#### get data
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/buatbimker/getdata`
+- Body :
+
+```json
+{
+  "id_kewilayahan": "number",
+  "id_komar": "number",
+  "id_kota": "number",
+  "tahunajaran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKerjasama": "668",
+      "IdPenanda": "6",
+      "Penanda": "SURAKARTA",
+      "IdKomar": "80",
+      "NamaKomar": "SURAKARTA",
+      "TahunAjaran": "2023/2024",
+      "NamaChannel": "Latifah Nur Fadilah",
+      "Telp": "+6285647228076",
+      "IsDenganSekolah": "1",
+      "IdSekolah": "113704",
+      "NamaSekolah": "SMA Mta Surakarta",
+      "JenjangPendidikan": "SMA",
+      "IdDistrict": "199",
+      "District": "KOTA SURAKARTA",
+      "IdProvinsi": "15",
+      "Provinsi": "PROVINSI JAWA TENGAH",
+      "IdSekolahKelas": "14,15",
+      "SekolahKelas": "12 SMA IPA, 12 SMA IPS",
+      "NilaiKerjasama": "262200000",
+      "TahapanPembayaran": "[{\"tahap\": 1, \"jumlah\": 100000000, \"tanggal\": \"2023-09-09\"}, {\"tahap\": 2, \"jumlah\": 100000000, \"tanggal\": \"2023-10-30\"}, {\"tahap\": 3, \"jumlah\": 62200000, \"tanggal\": \"2023-11-30\"}]",
+      "BiayaOperasional": "100000",
+      "PerkiaraanJumSis": "114",
+      "Jumsis": "0",
+      "BiayaPerSiswa": "2300000",
+      "TglJatuhTempo1": "2023-09-09",
+      "Deskripsi": "Sukses UTBK SNBT 2024",
+      "TanggalAwal": "2023-09-11",
+      "TanggalAkhir": "2024-03-04",
+      "JumlahPertemuan": "36",
+      "JumlahPertemuanOffline": "36",
+      "JumlahPertemuanOnline": "0",
+      "JumlahTOBK": "6",
+      "JumlahTOBC": "0",
+      "Pengali": "1.00",
+      "PengaliReal": "0.00",
+      "IdBundling": null,
+      "NamaBundling": null,
+      "HargaPT": null,
+      "HargaTotal": null,
+      "FileMOU": "49bb8bcd666c2bd0c02757d29e544de3_230909055644.pdf",
+      "Status": "Submit",
+      "Updater": "0902500170",
+      "LastUpdate": "2023-09-09 12:58:18"
+    }
+  ]
+}
+```
+
+#### get list provinsi
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/provinsi?search=${provinsi}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdProvinsi": "39",
+      "Provinsi": "LUAR NEGERI"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list kota by id provinsi
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/kota?search=${provinsi}`
+- Body :
+  ```json
+  {
+    "idprovinsi": "number"
+  }
+  ```
+  Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKota": "36",
+      "Kota": "KABUPATEN ASAHAN"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list sekolah kelas
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/sekolahkelas?search=${tingkatsekolah}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdSekolahKelas": "1",
+      "TingkatSekolah": "1 SD DASAR"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list sekolah kelas by kelompok
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/sekolahkelasbykelompok?search=${tingkatsekolah}`
+- Body :
+
+```json
+{
+  "kelompok": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdSekolahKelas": "7",
+      "TingkatSekolah": "7 SMP UMUM"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get sekolah by kota dan jenjang pendidikan
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/sekolah`
+- Body :
+  ``
+
+```json
+{
+  "jenjangpendidikan": "SMK",
+  "idkota": "155"
+}
+```
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "IdSekolah": "125102",
+      "NamaSekolah": "SMK 45 LEMBANG"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+> **_NOTE:_** di gokasir existing hardcode.
+> ex :
+> "SD","MI","SMP","MTS","SMA","MA","SMK","PONPES","ALUMNI"
+
+#### get jenjang pendidikan
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/jenjangpendidikan`
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "id": "str",
+      "nama": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### create bimker /update bimker
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/buatbimker/setdata`
+- Body
+
+````javascript
+tempatbelajar
+  ? ```json
+    {
+      IdPenanda : number
+      id_komar : number,
+      tahunajaran : string
+      id_provinsi : number,
+      id_kota : number,
+      id_jenjangpendidikan: number,
+      id_sekolah : number,
+      id_sekolahkelas : number,
+      nama_bimker : string,
+      nama_channel : string
+      no_telp : string
+      nilai_kerjasama : string
+      biaya_operasional : string
+      jumlah_siswa : string
+      biaya_per_siswa : string
+      jumlah_pertemuan_online : string
+      jumlah_pertemuan_offline : string
+      jumlah_tobk : string
+      jumlah_tobc : string
+      penggali : string
+      tgl_awal : string
+      tgl_akhir : string
+      jumlah_pertemuan : string
+      upload_mou : file
+    }
+    ```
+  : ```json
+    {
+      IdPenanda : number
+      id_komar : number,
+      tahunajaran : string,
+      id_sekolahkelas : number,
+      nama_bimker : string,
+      nama_channel : string
+      no_telp : string
+      nilai_kerjasama : string
+      biaya_operasional : string
+      jumlah_siswa : string
+      biaya_per_siswa : string
+      jumlah_pertemuan_online : string
+      jumlah_pertemuan_offline : string
+      jumlah_tobk : string
+      jumlah_tobc : string
+      penggali : string
+      tgl_awal : string
+      tgl_akhir : string
+      jumlah_pertemuan : string
+      upload_mou : file
+    }
+    ```;
+````
+
+Response
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+<img src="https://github.com/FajriGoBimbel/spec-api-dahsboard/blob/nael/image/create-bimkar.png" />
+
+Response
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### hapus bimker
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/buatbimker/deldata`
+- Body :
+
+```json
+{
+  "id_kerjasama": "number",
+  "status": "TidakAktif"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### kirim bimker
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/buatbimker/updatestatus`
+- Body :
+
+```json
+{
+  "id_kerjasama": "number",
+  "status": "Submit"
+}
+```
+
+Response :
+
+```json
+{
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get bundling
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/bundling`
+- Body :
+
+```json
+{
+  "id_kota": "number",
+  "tahunajaran": "string",
+  "tingkat": "string"
+}
+```
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "IdBundling": "766515",
+      "IdProdukMix": "12107",
+      "NamaBundling": "TWT 12 SMA IPA Silver Jaminan 100 Persen SMAN 8 BANDUNG Trisemester Kelas Lanjutan K13R 23/24",
+      "HargaPT": "0",
+      "HargaJual": "18000000",
+      "IdPola": "2",
+      "SkemaCicilan": {
+        "1": 50,
+        "2": 30,
+        "3": 20
+      },
+      "TanggalAwal": "2023-03-30",
+      "TanggalAkhir": "2023-12-16"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+> **_NOTE:_** KURANG SUB MENU VERIFIKASI BIMKER
+
+### Persetujuan Bimker
+
+#### get data
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/persetujuanbimker/getdata`
+- Body :
+
+```json
+{
+  "idKota": "string",
+  "idKomar": "string",
+  "idKewilayahan": "string",
+  "status": "Verified",
+  "tahunajaran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [{}],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Pembayaran Bimker
+
+#### get data
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/pembayaranbimker/getdata`
+- Body :
+
+```json
+{
+  "idKota": "string",
+  "idKomar": "string",
+  "idKota": "string",
+  "status": "Setuju",
+  "tahunajaran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKerjasama": "731",
+      "IdPenanda": "1",
+      "Penanda": "BANDUNG",
+      "IdKomar": "2155",
+      "NamaKomar": "BANDUNG RAYA",
+      "TahunAjaran": "2023/2024",
+      "NamaChannel": "TETEP KURNIA, S.Kom",
+      "Telp": "087824228202",
+      "IsDenganSekolah": "1",
+      "IdSekolah": "392251",
+      "NamaSekolah": "SMA EL FITRA",
+      "JenjangPendidikan": "SMA",
+      "IdDistrict": "143",
+      "District": "KOTA BANDUNG",
+      "IdProvinsi": "12",
+      "Provinsi": "PROVINSI JAWA BARAT",
+      "IdSekolahKelas": "14",
+      "SekolahKelas": "12 SMA IPA",
+      "NilaiKerjasama": "168000000",
+      "TahapanPembayaran": "[{\"tahap\": 1, \"jumlah\": 33600000, \"tanggal\": \"2023-09-27\"}, {\"tahap\": 2, \"jumlah\": 33600000, \"tanggal\": \"2023-10-27\"}, {\"tahap\": 3, \"jumlah\": 33600000, \"tanggal\": \"2023-11-27\"}, {\"tahap\": 4, \"jumlah\": 33600000, \"tanggal\": \"2023-12-27\"}, {\"tahap\": 5, \"jumlah\": 33600000, \"tanggal\": \"2024-01-27\"}]",
+      "BiayaOperasional": "1",
+      "PerkiaraanJumSis": "28",
+      "Jumsis": "28",
+      "BiayaPerSiswa": "6000000",
+      "TglJatuhTempo1": "2023-09-27",
+      "Deskripsi": "SUKSES SNBT 2024",
+      "TanggalAwal": "2023-10-02",
+      "TanggalAkhir": "2024-05-31",
+      "JumlahPertemuan": "113",
+      "JumlahPertemuanOffline": "113",
+      "JumlahPertemuanOnline": "0",
+      "JumlahTOBK": "17",
+      "JumlahTOBC": "0",
+      "Pengali": "1.00",
+      "PengaliReal": "1.00",
+      "IdBundling": "1222708",
+      "NamaBundling": "TWT 12 SMA IPA Bimker SMA El Fitra Bandung K13R 23/24",
+      "HargaPT": "0",
+      "HargaTotal": "6000000",
+      "FileMOU": "d0b25a58f63db6ccb3c531516641c2ea_230930051225.pdf",
+      "Status": "Setuju",
+      "Updater": "1302501109",
+      "LastUpdate": "2023-10-02 13:40:06"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Entri Siswa Bimker
+
+#### get data
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/entrisiswabimker/getdata`
+- Body :
+
+```json
+{
+  "idKota": "string",
+  "idKomar": "string",
+  "idKota": "string",
+  "status": "Setuju",
+  "tahunajaran": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKerjasama": "731",
+      "IdPenanda": "1",
+      "Penanda": "BANDUNG",
+      "IdKomar": "2155",
+      "NamaKomar": "BANDUNG RAYA",
+      "TahunAjaran": "2023/2024",
+      "NamaChannel": "TETEP KURNIA, S.Kom",
+      "Telp": "087824228202",
+      "IsDenganSekolah": "1",
+      "IdSekolah": "392251",
+      "NamaSekolah": "SMA EL FITRA",
+      "JenjangPendidikan": "SMA",
+      "IdDistrict": "143",
+      "District": "KOTA BANDUNG",
+      "IdProvinsi": "12",
+      "Provinsi": "PROVINSI JAWA BARAT",
+      "IdSekolahKelas": "14",
+      "SekolahKelas": "12 SMA IPA",
+      "NilaiKerjasama": "168000000",
+      "TahapanPembayaran": "[{\"tahap\": 1, \"jumlah\": 33600000, \"tanggal\": \"2023-09-27\"}, {\"tahap\": 2, \"jumlah\": 33600000, \"tanggal\": \"2023-10-27\"}, {\"tahap\": 3, \"jumlah\": 33600000, \"tanggal\": \"2023-11-27\"}, {\"tahap\": 4, \"jumlah\": 33600000, \"tanggal\": \"2023-12-27\"}, {\"tahap\": 5, \"jumlah\": 33600000, \"tanggal\": \"2024-01-27\"}]",
+      "BiayaOperasional": "1",
+      "PerkiaraanJumSis": "28",
+      "Jumsis": "28",
+      "BiayaPerSiswa": "6000000",
+      "TglJatuhTempo1": "2023-09-27",
+      "Deskripsi": "SUKSES SNBT 2024",
+      "TanggalAwal": "2023-10-02",
+      "TanggalAkhir": "2024-05-31",
+      "JumlahPertemuan": "113",
+      "JumlahPertemuanOffline": "113",
+      "JumlahPertemuanOnline": "0",
+      "JumlahTOBK": "17",
+      "JumlahTOBC": "0",
+      "Pengali": "1.00",
+      "PengaliReal": "1.00",
+      "IdBundling": "1222708",
+      "NamaBundling": "TWT 12 SMA IPA Bimker SMA El Fitra Bandung K13R 23/24",
+      "HargaPT": "0",
+      "HargaTotal": "6000000",
+      "FileMOU": "d0b25a58f63db6ccb3c531516641c2ea_230930051225.pdf",
+      "Status": "Setuju",
+      "Updater": "1302501109",
+      "LastUpdate": "2023-10-02 13:40:06"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+## Laporan Keuangan
+
+### Laporan Audit Transaksi Pembayaran
+
+#### get gedung by kota
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/gedung`
+- Body :
+
+```json
+{
+  "id_kota": "326"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdGedung": "825",
+      "NamaGedung": "LETJEN. SUPRAPTO 22"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get data audit
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getaudittrx?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "kotago": "6",
+  "gedung": "228",
+  "tahunajaran": "2023/2024",
+  "tglawal": "2023-10-2",
+  "tglakhir": "2023-10-7"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "TahunAjaran": "2023/2024",
+      "Penanda": "SURAKARTA",
+      "NamaCabang": "SURAKARTA",
+      "NamaGedung": "Ahmad Yani 187 (Ngemplak)",
+      "NomorInvoice": "0228231003151037",
+      "TanggalBayar": "2023-10-03",
+      "NoKwitansiManual": "-",
+      "Insert": "2023-10-03 15:11:53",
+      "IdPembelian": "1887044",
+      "NoRegistrasi": "051002022801",
+      "NamaLengkap": "YASLAM KHOIRUN NAJMUDDIN",
+      "NamaGedungSiswa": "Ahmad Yani 187 (Ngemplak)",
+      "JmlBayar": "4550000",
+      "CaraBayar": "CASH",
+      "NamaBank": "-",
+      "NamaKelas": "12-IPS-R-N-31",
+      "NamaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
+      "Updater": "1000600157 - Fitri Hariani",
+      "LastUpdate": "2023-10-03 15:11:53",
+      "NoKwitansi": "02280000396231003151231",
+      "TanggalKwitansiManual": "2023-10-03"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Laporan audit Penggunaan Diskon
+
+#### get laporan audit penggunaan diskon
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getauditdiskon?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "kotago": "6",
+  "gedung": "228",
+  "tahunajaran": "2023/2024",
+  "tingkatkelas": "15"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "TahunAjaran": "2023/2024",
+      "Penanda": "SURAKARTA",
+      "NamaCabang": "SURAKARTA",
+      "NamaGedung": "Ahmad Yani 187 (Ngemplak)",
+      "NomorInvoice": "0228230623162534",
+      "NoRegistrasi": "060718022801",
+      "NamaLengkap": "ADHIMAS ACHMAD MUGHNI",
+      "NamaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
+      "NamaDiskon": "Diskon Promosi 11%_",
+      "JumlahDiskonRp": "935000",
+      "Status": "Aktif",
+      "Updater": "1000600157 - Fitri Hariani",
+      "Insert": "2023-06-23 16:29:42"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Laporan audit Penggunaan Diskon 2
+
+#### get laporan audit penggunaan diskon 2
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getauditdiskon2?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "kotago": "6",
+  "gedung": "228",
+  "tahunajaran": "2023/2024",
+  "tingkatkelas": "14"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "TahunAjaran": "2023/2024",
+      "NamaCabang": "SURAKARTA",
+      "Penanda": "SURAKARTA",
+      "NamaGedung": "Ahmad Yani 187 (Ngemplak)",
+      "NomorInvoice": "0228230721172000",
+      "NoRegistrasi": "060126022801",
+      "NamaLengkap": "ABYAN BAGASKARA SYAIFULLAH",
+      "NamaBundling": "TWT 12 SMA IPA K13R 4P 23/24",
+      "HargaPT": "200000",
+      "HargaJual": "8700000",
+      "TotalDiskon": "4550000",
+      "Diskons": "[{\"nama\": \"Diskon Anak Kandung Guru_\", \"nominal\": 4350000.0, \"kelompok\": \"Diskon Anak Kandung Guru\"}, {\"nama\": \"Diskon Pendaftaran 100%_\", \"nominal\": 200000.0, \"kelompok\": \"Pendaftaran\"}]",
+      "DiskonPT": "Diskon Pendaftaran 100%_",
+      "DiskonPTVal": 200000,
+      "DiskonB1": "Diskon Anak Kandung Guru_",
+      "DiskonB1Val": 4350000,
+      "DiskonB2": "-",
+      "DiskonB2Val": "0",
+      "DiskonB3": "-",
+      "DiskonB3Val": "0",
+      "DiskonLunas": "-",
+      "DiskonLunasVal": "0",
+      "Updater": "1000600157 - Fitri Hariani",
+      "Insert": "2023-07-21 17:27:22"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Laporan Pelunasan
+
+#### get laporan Pelunasan
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getpelunasan?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "kotago": "6",
+  "gedung": "228",
+  "tahunajaran": "2023/2024",
+  "tingkatkelas": "15"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NamaPenanda": "SURAKARTA",
+      "NamaCabang": "SURAKARTA",
+      "NamaGedung": "Ahmad Yani 187 (Ngemplak)",
+      "IdKelas": "260213",
+      "NamaKelas": "12-IPS-R-N-31",
+      "KapasitasMax": "25",
+      "SiswaPT": "0",
+      "SiswaC1Kurang": "1",
+      "SISWAC1": "1",
+      "SISWAC2": "8",
+      "SISWALUNAS": "13",
+      "SiswaCicilLunas": 23,
+      "SiswaPTCicilLunas": 23,
+      "PersenLInternal": 57,
+      "BimkerBelumLunas": "0",
+      "BimkerLunas": "0",
+      "JumsisBimker": "0",
+      "PersenLBimker": 0,
+      "SudahLunas": "0",
+      "BelumLunas_AkanBayar": "0",
+      "BelumLunas_AkanRevisi": "0",
+      "Batal": "0",
+      "BelumLunasGakDitagih": "11"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Laporan Potensi Pembayaran
+
+#### get laporan Potensi Pembayaran
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getpotensibyr?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "kotago": "6",
+  "gedung": "228",
+  "tahunajaran": "2023/2024",
+  "tingkatkelas": "15"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NamaPenanda": "SURAKARTA",
+      "NamaCabang": "SURAKARTA",
+      "NamaGedung": "Ahmad Yani 187 (Ngemplak)",
+      "IdKelas": "260213",
+      "NamaKelas": "12-IPS-R-N-31",
+      "KapasitasMax": "25",
+      "PRICELISTInternal": "1199900000",
+      "DISKONInternal": "224067250",
+      "KEWAJIBANInternal": 975832750,
+      "PEMBAYARANInternal": "169837000",
+      "KEKURANGANInternal": 805995750,
+      "PersenDisk": 19,
+      "PersenKwj": 81,
+      "PersenByr": 17,
+      "PersenKrg": 83,
+      "PRICELISTBimker": "0",
+      "DISKONBimker": "0",
+      "KEWAJIBANBimker": 0,
+      "PEMBAYARANBimker": "0",
+      "KEKURANGANBimker": 0,
+      "PersenDiskBimker": 0,
+      "PersenKwjBimker": 0,
+      "PersenByrBimker": 0,
+      "PersenKrgBimker": 0
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Laporan Pembayaran Bimker
+
+#### get laporan Pembayaran Bimker
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/laporan/getlappembayaranbimker?sortby=${ALL}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{ "kota": "6", "kewilayahan": "0", "komar": "0", "tahunajaran": "2023/2024" }
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKerjasama": "733",
+      "IdPenanda": "6",
+      "Penanda": "SURAKARTA",
+      "IdKomar": "1493",
+      "NamaKomar": "Ahmad Yani 187",
+      "Deskripsi": "PROGRAM BIMBINGAN BELAJAR SUKSES PTS, PAT DAN PENGENALAN SOAL SNBT",
+      "IdSekolah": "113683",
+      "NamaSekolah": "MAN 1 Surakarta",
+      "IdSekolahKelas": "25",
+      "SekolahKelas": "10 SMA UMUM",
+      "TanggalAwal": "2023-10-02",
+      "TanggalAkhir": "2024-05-20",
+      "NilaiKerjasama": "72000000",
+      "SudahBayar": "72000000",
+      "SisaBayar": 0,
+      "StatusBayar": "LUNAS"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
