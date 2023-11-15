@@ -742,3 +742,190 @@ Response :
         }
     }
 ```
+
+### Create Jenis Diskon Kota
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/goproduk/jenisdiskonkota`,
+- Header : null
+- Body :
+```json
+{
+  "IdJenisDiskon": "number",
+  "nilai":  "number",
+  "tanggalawal":  "string,date",
+  "tanggalakhir":  "string,date",
+  "tahunajaran": "String",
+  "penanda": ["number"],
+  "produkmix":  ["number"]
+}
+
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Delete Jenis Diskon Kota
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/goproduk/jenisdiskonkota/idjenisdiskonkota`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Ajukan jenis Diskon Kota 
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/goproduk/jenisdiskonkota/ajukan`,
+- Header : null
+- Body :
+```json
+{ "idProduk":"number"}
+
+```
+
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Validasi Jenis Diskon Kota
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/goproduk/jenisdiskonkota/{idjenisdiskonKota}`,
+- Header : null
+- Body :
+```json
+{ 
+    "idjenisdiskonkota":"number",
+    "Status":"bolean",
+    "user_id" :"String"
+}
+
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+## bundling
+
+### get list bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling?page={value}&per_page={value}&tingkatkelas={value}&kota={value}&tahunajaran={value}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### gek Kota Bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling/kotabundling/{idprodukmix}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+             {
+            "c_IdPenanda": "Number",
+            "c_NamaPenanda": "String"
+        }
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### gek Kota Bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling/KomponenProduk/{idbundling}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+              {
+                "c_IdPemberlakuan": "number",
+                "c_IdBundling": "number",
+                "c_IdProduk": "number",
+                "c_NamaProduk": "String",
+                "c_Keterangan": "String",
+                "c_HPPProduk": "number",
+                "c_Penambahanharga": "number",
+                "c_Harga": "number"
+            },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
