@@ -865,7 +865,44 @@ Response :
 
 ```json
     {
-        "data": null,
+        "data":[
+             {
+                "c_IdPenanda": "number",
+                "c_Penanda": "BANDUNG",
+                "c_IdBundling": "number",
+                "c_NamaBundling": "string",
+                "NamaBundling": "string",
+                "c_IdProdukMix": "number",
+                "c_NamaProdukMix": "string",
+                "c_IsOnline": "bolean",
+                "c_IsKerjaSama": "bolean",
+                "c_TahunAjaran": "string",
+                "c_Status": "string",
+                "c_IdSekolahKelas": "number",
+                "c_TingkatKelas": "string",
+                "c_JenisKelas": "string",
+                "c_TanggalAwal": "string,date",
+                "c_TanggalAkhir": "string,date",
+                "c_HargaPT": "number",
+                "c_HargaFasilitas": "number",
+                "c_Deskripsi": "string",
+                "c_JenisBiayaOperasional": "number",
+                "c_KapasitasMax": "number",
+                "c_BiayaOperasional": "number",
+                "c_HargaSebelum": "number",
+                "c_HargaPenyesuaian": "number",
+                "c_HargaTotal": "number",
+                "c_Margin": "number",
+                "c_BiayaTercantum": "number",
+                "c_IdPola": "number",
+                "c_Pola": "string",
+                "c_SkemaCicilan": "{\"1\": 50, \"2\": 30, \"3\": 20}",
+                "c_IsTeaser": "bolean",
+                "c_IsJaminan100": "bolean",
+                "c_IsJaminan100Txt": "bolean",
+                "c_Action": "string"
+            },
+        ],
         "meta": {
             "code": "number",
             "message": "string",
@@ -873,8 +910,33 @@ Response :
         }
     }
 ```
-
-### gek Kota Bundling
+ {
+            "c_IdPenanda": "1",
+            "c_Penanda": "BANDUNG",
+            "c_IdSekolahKelas": "9",
+            "c_TingkatKelas": "9 SMP UMUM",
+            "c_IdBundling": "1226963",
+            "c_NamaBundling": " TWT 9 SMP UMUM Privat Non Primetime 25P K13R 23/24",
+            "NamaBundling": "1226963 -  TWT 9 SMP UMUM Privat Non Primetime 25P K13R 23/24",
+            "c_IdProdukMix": "13115",
+            "c_NamaProdukMix": "9-SMP-UMUM-PRV-252525-N-K13R-T-11B5",
+            "c_TahunAjaran": "2023/2024",
+            "c_JenisKelas": "PRIVAT",
+            "c_TanggalAwal": "2023-11-07",
+            "c_TanggalAkhir": "2023-11-07",
+            "c_Deskripsi": "TWT 9 SMP UMUM Privat Non Primetime 25P K13R 23/24\n",
+            "c_HargaPT": "0",
+            "c_HargaFasilitas": "524025",
+            "c_BiayaOperasional": "0",
+            "c_HargaTotal": "6750000",
+            "c_IsOnline": "N",
+            "c_IsKerjaSama": "N",
+            "c_IsJaminan100": "0",
+            "c_IsJaminan100Txt": "N",
+            "c_Status": "Aktif",
+            "c_IsPenyesuaian": " ( Penyesuaian )"
+        },
+### get Kota Bundling
 Request :
 
 - Method : get
@@ -899,7 +961,7 @@ Response :
     }
 ```
 
-### gek Kota Bundling
+### get Komponen Produk
 Request :
 
 - Method : get
@@ -921,6 +983,701 @@ Response :
                 "c_Penambahanharga": "number",
                 "c_Harga": "number"
             },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### get List Bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling/list`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+                 {
+                    "c_IdPenanda": "number",
+                    "c_Penanda": "string",
+                    "c_IdSekolahKelas": "number",
+                    "c_TingkatKelas": "string",
+                    "c_IdBundling": "number",
+                    "c_NamaBundling": "string",
+                    "NamaBundling": "string",
+                    "c_IdProdukMix": "number",
+                    "c_NamaProdukMix": "string",
+                    "c_TahunAjaran": "string",
+                    "c_JenisKelas": "string",
+                    "c_TanggalAwal": "string,date",
+                    "c_TanggalAkhir": "string,date",
+                    "c_Deskripsi": "string",
+                    "c_HargaPT": "number",
+                    "c_HargaFasilitas": "number",
+                    "c_BiayaOperasional":"number",
+                    "c_HargaTotal": "number",
+                    "c_IsOnline": "bolean",
+                    "c_IsKerjaSama": "bolean",
+                    "c_IsJaminan100": "bolean",
+                    "c_IsJaminan100Txt": "String",
+                    "c_Status": "string",
+                    "c_IsPenyesuaian": "bolean",
+                }
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Get list Bundling di membuat
+
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+                {
+                    "c_IdPenanda": "number",
+                    "c_Penanda": "string",
+                    "c_IdBundling": "number",
+                    "c_NamaBundling": "string",
+                    "NamaBundling": "string",
+                    "c_IdProdukMix": "number",
+                    "c_NamaProdukMix": "string",
+                    "c_IsOnline": "N",
+                    "c_IsKerjaSama": "N",
+                    "c_TahunAjaran": "string",
+                    "c_Status":"string",
+                    "c_IdSekolahKelas": "number",
+                    "c_TingkatKelas": "string",
+                    "c_JenisKelas": "string",
+                    "c_TanggalAwal": "string,date",
+                    "c_TanggalAkhir": "string,date",
+                    "c_HargaPT": "number",
+                    "c_HargaFasilitas": "number",
+                    "c_Deskripsi": "string",
+                    "c_JenisBiayaOperasional": "string",
+                    "c_KapasitasMax": "number",
+                    "c_BiayaOperasional": "number",
+                    "c_HargaSebelum": "number",
+                    "c_HargaPenyesuaian":"number",
+                    "c_HargaTotal": "number",
+                    "c_Margin": "number",
+                    "c_BiayaTercantum": "number",
+                    "c_IdPola": "number",
+                    "c_Pola": "string",
+                    "c_SkemaCicilan":[
+                        {
+                            "cicilan-ke":"number",
+                            "jumlah_pembayaran":"number"//dalam persen misal 20 berarti 20 persen
+                        }
+                    ],
+                    "c_IsTeaser":"bolean",
+                    "c_IsJaminan100": "bolean",
+                    "c_IsJaminan100Txt": "bolean",
+                    "c_Action": "string"
+                },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### Get List Produk mix di dalam pembuatan bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling/produkmix?iskerjasama={value}&jenislayanan={value}&tingkatkelas={value}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+                {
+            "c_IdProdukMix": "number",
+            "c_NamaProdukMix": "string"
+        },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### get isi bundling
+Request :
+
+- Method : get
+- Endpoint : `/api/v1/goproduk/bundling/isi/{idbundling}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+               {
+                    "c_IdPemberlakuan": "number",
+                    "c_IdBundling": "number",
+                    "c_IdProduk": "number",
+                    "c_NamaProduk": "string",
+                    "c_HPPProduk": "number",
+                    "c_Index": "string",
+                    "c_Jumlah": "number",
+                    "c_Penambahanharga": "number",
+                    "c_TanggalPemberian": "string,date",
+                    "c_TanggalAkhirPemberian": "string,date",
+                    "c_Harga": "number"
+                },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+
+### create bundling
+
+
+Request :
+
+- Method : Post
+- Endpoint : `/api/v1/goproduk/bundling`,
+- Header : null
+- Body :
+```json
+        {
+        "idprodukmix": "number",
+        "kota": "number",
+        "jenislayanan": "number",
+        "tingkatkelas": "number",
+        "iskerjasama": "bolean",
+        "isonline": "bolean",
+        "namabundling": "string",
+        "tglawaljual": "string,date",
+        "tglakhirjual": "string,date",
+        "deskripsi": "string",
+        "isjaminan100": "bolean",
+        "hargapt": "number",
+        "biayaoperasional": "number",
+        "tahunajaran": "String",
+        "jenisbiayaoperasional": {
+            "biayaoperasionallistrik": "number",
+            "biayainternet": "number",
+            "biayazoom": "number",
+            "transportpengajar": "number",
+            "uangmakanpengajar": "number",
+            "biayaoperasionalsekolah": "number"
+        },
+        "polacicilan": "number",
+        "isteaser": "bolean",
+        "isperpanjang": "bolean"
+        }
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+
+### Edit bundling
+
+
+Request :
+
+- Method : Put
+- Endpoint : `/api/v1/goproduk/bundling`,
+- Header : null
+- Body :
+```json
+        {
+        "idbundling":"number",
+        "idprodukmix": "number",
+        "kota": "number",
+        "jenislayanan": "number",
+        "tingkatkelas": "number",
+        "iskerjasama": "bolean",
+        "isonline": "bolean",
+        "namabundling": "string",
+        "tglawaljual": "string,date",
+        "tglakhirjual": "string,date",
+        "deskripsi": "string",
+        "isjaminan100": "bolean",
+        "hargapt": "number",
+        "biayaoperasional": "number",
+        "tahunajaran": "String",
+        "jenisbiayaoperasional": {
+            "biayaoperasionallistrik": "number",
+            "biayainternet": "number",
+            "biayazoom": "number",
+            "transportpengajar": "number",
+            "uangmakanpengajar": "number",
+            "biayaoperasionalsekolah": "number"
+        },
+        "polacicilan": "number",
+        "isteaser": "bolean",
+        "isperpanjang": "bolean"
+        }
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### Edit Margin bundling
+
+
+Request :
+
+- Method : Put
+- Endpoint : `/api/v1/goproduk/bundling/margin`,
+- Header : null
+- Body :
+```json
+     {
+        "idbundling": "number",
+        "margin": "number",
+        "biayatercantum": "number"
+    }
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Delete bundling
+
+
+Request :
+
+- Method : DELETE
+- Endpoint : `/api/v1/goproduk/bundling/{idbundling}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Penytesuaian Harga bundling
+
+Request :
+
+- Method : Put
+- Endpoint : `/api/v1/goproduk/bundling/penyesuaian`,
+- Header : null
+- Body :
+```json
+        {
+        "idbundling":"number",
+        "penyesuaianHarga":"number"
+        }
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### update Status bundling
+
+Request :
+
+- Method : Put
+- Endpoint : `/api/v1/goproduk/bundling/pengajuan`,
+- Header : null
+- Body :
+```json
+        {
+        "idbundling":"number",
+        "status":"String"
+        }
+```
+Response :
+
+```json
+    {
+        "data": null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+## verifikasi
+
+### Get Kota produk mix
+
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/goproduk/bundling/verifikasi/kota/{idprodukmix}`,
+- Header : null
+- Body :
+Response :
+
+```json
+    {
+        "data": [
+                {
+                "c_IdPenanda": "number",
+                "c_NamaPenanda": "string"
+            },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### Get Komponen produk
+
+Request :
+
+- Method : Get
+- Endpoint : `/api/v1/goproduk/bundling/verifikasi/komponenProduk/{idbundling}`,
+- Header : null
+- Body :
+Response :
+
+
+```json
+    {
+        "data": [
+                {
+                    "c_IdPemberlakuan": "number",
+                    "c_IdBundling": "number",
+                    "c_IdProduk": "number",
+                    "c_NamaProduk": "string",
+                    "c_Keterangan": "string",
+                    "c_HPPProduk": "number",
+                    "c_Penambahanharga": "number",
+                    "c_Harga": "number"
+                },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### verifikasi bundling
+
+Request :
+
+- Method : post
+- Endpoint : `/api/v1/goproduk/bundling/verifikasi`,
+- Header : null
+- Body :
+```json
+{
+    "idbundling":"number",
+    "user_id": "string",
+    "status": "string"
+}
+```
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+
+### pengesahan bundling
+
+Request :
+
+- Method : post
+- Endpoint : `/api/v1/goproduk/bundling/pengesahan`,
+- Header : null
+- Body :
+```json
+{
+    "idbundling":"number",
+    "user_id": "string",
+    "status": "string"
+}
+```
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+## pemberlakuan Produk
+
+### get list Pemberlakuan Produk by tahun ajaran dan kota
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/goproduk/pemberlakuan?tahunajaran={value}&kota={}&page={}&per_page={}`,
+- Header : null
+- Body :
+
+Response :
+
+```json
+    {
+        "data":[
+             {
+                "idprodukasli": "number",
+                "idProdukPP": "number",
+                "c_NamaProduk": "String",
+                "c_Kurikulum": "string",
+                "c_NamaTingkatKelas": "string",
+                "c_JenisKelas": "string",
+                "c_NamaBidang": "string",
+                "c_HPP": "number",
+                "c_OngkosKirim": "number",
+                "c_Status": "number",
+                "c_Penanda": "number",
+                "c_NamaJenisProduk": "string"
+            },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### get list Pemberlakuan Produk
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/goproduk/pemberlakuan?jenisproduk={value}&page={}&per_page={}`,
+- Header : null
+- Body :
+
+Response :
+
+```json
+    {
+        "data":[
+             {
+                "idprodukasli": "number",
+                "idProdukPP": "number",
+                "c_NamaProduk": "String",
+                "c_Kurikulum": "string",
+                "c_NamaTingkatKelas": "string",
+                "c_JenisKelas": "string",
+                "c_NamaBidang": "string",
+                "c_HPP": "number",
+                "c_OngkosKirim": "number",
+                "c_Status": "number",
+                "c_Penanda": "number",
+                "c_NamaJenisProduk": "string"
+            },
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### create Pemberlakuan Produk
+
+Request :
+
+- Method : POST
+- Endpoint : `/api/v1/goproduk/pemberlakuan `,
+- Header : null
+- Body :
+```json
+        {
+            "idproduk": 37963,
+            "idpenanda": "194",
+            "tp": "2023/2024",
+            "hpp": 200000,
+            "status": "Create",
+            "ongkos": "N",
+            "beban": "SISWA"
+        }
+```
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### Get list Siap Kirim
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/goproduk/pemberlakuan/kirim`,
+- Header : null
+- Body :
+
+Response :
+
+```json
+    {
+        "data":[
+             {
+            "c_NamaProduk": "string",
+            "c_HPP": "number",
+            "c_OngkosKirim": "Bolean",
+            "c_Status": "string",
+            "c_IdPemberlakuan": "number",
+            "cek": "bolean"
+        },
+
+        ],
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+
+### kirim Pemberlakuan Produk
+
+Request :
+
+- Method : put
+- Endpoint : `/api/v1/goproduk/pemberlakuan/kirim`,
+- Header : null
+- Body :
+```json
+    {
+         [
+            {
+                
+                "c_IdPemberlakuan": "number",
+                "c_idPenanda":"number"
+                },
+
+        ]
+    }
+```
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
+### get list pemberlakuan persetujuan
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/goproduk/pemberlakuan/validasi?jenisproduk={value}&page={}&per_page={}`,
+- Header : null
+- Body :
+
+Response :
+
+```json
+    {
+        "data":[
+            {
+            "c_IdPemberlakuan": "number",
+            "c_TahunAjaran": "string",
+            "c_HPP": "number",
+            "c_Status": "string",
+            "c_NamaProduk":"string",
+            "c_Penanda": "string",
+            "c_OngkosKirim": "bolean",
+            "cek": "bolean"
+            }
         ],
         "meta": {
             "code": "number",
