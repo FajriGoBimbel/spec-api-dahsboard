@@ -983,5 +983,392 @@ Response :
   }
 }
 ```
+### get list bank
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/list/bank?search=${nama}`
+
+Response :
+
+```json
+{
+  "data": [
+        {
+        "idbank": "string",
+        "namabank": "string"
+        }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get bank Detail
+
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/list/bank/{id}`
+
+Response :
+
+```json
+{
+  "data": [
+        {
+        "idbank": "string",
+        "namabank": "string"
+        }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get sekolah by kota dan jenjang pendidikan
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/sekolah?jenjangpendidikan={}&idkota={}`
+- Body :
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "IdSekolah": "number",
+      "NamaSekolah": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get sekolah detail
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/sekolah/id`
+- Body :
+
+Response
+
+```json
+{
+  "data": 
+    {
+      "IdSekolah": "number",
+      "NamaSekolah": "String"
+    }
+  ,
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+## BARU 
+### get jenis sekolah 
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/jenissekolah` 
+- Body :
+
+Response
+
+```json
+{
+  "data": [
+    {
+      "IdjenisSekolah": "number",
+      "NamaSekolah": "String"
+    }],//"SD","MI","SMP","MTS","SMA","MA","SMK","PONPES","ALUMNI"
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get jenis sekolah  detail
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/jenissekolah/id` 
+- Body :
+
+Response
+
+```json
+{
+  "data": 
+    {
+      "IdjenisSekolah": "number",
+      "NamaSekolah": "String"
+    },//"SD","MI","SMP","MTS","SMA","MA","SMK","PONPES","ALUMNI"
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Get Kelas
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/kelas` 
+- Body :
+
+Response
+
+```json
+{
+  "data": [
+      {
+            "c_IdKelas": "number",
+            "c_NamaKelas": "String"
+        }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### Get Kelas detail
+
+Request
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/kelas/{id}` 
+- Body :
+
+Response
+
+```json
+{
+  "data": {
+            "c_IdKelas": "number",
+            "c_NamaKelas": "String"
+        },
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Get list Metode
 
 
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/metode?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get jenis 
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/jenis?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get tipe
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/gokasir/list/tipe?search=${name}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "number",
+      "name": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get kewilayahan by kota
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/kewilayahanbykota`
+- Body :
+
+```json
+{
+  "id_kota": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+   {
+      "IdKewilayahan": "number",
+      "NamaKewilayahan": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get kewilayahan detail
+
+Request :
+
+- Method : get
+- Endpoint : `api/v1/gokasir/list/kewilayahanbykota/{id}`
+- Body :
+
+
+
+Response :
+
+```json
+{
+  "data": 
+    {
+      "IdKewilayahan": "number",
+      "NamaKewilayahan": "String"
+    },
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### get komar
+
+Request :
+
+- Method : get
+- Endpoint : `api/v1/gokasir/list/komar`
+- Body :
+
+```json
+{
+  "id_kewilayahan": "string",
+  "id_kota": "string"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKomar": "number",
+      "NamaKomar": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+### get komar detail
+
+Request :
+
+- Method : Get
+- Endpoint : `api/v1/gokasir/list/komar/{id}`
+- Body :
+
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKomar": "number",
+      "NamaKomar": "String"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
