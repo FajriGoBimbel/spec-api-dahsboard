@@ -1686,3 +1686,32 @@ Response :
         }
     }
 ```
+### Validasi pemberlakuan Produk
+
+Request :
+
+- Method : PUT
+- Endpoint : `/api/v1/goproduk/pemberlakuanproduk/validasi`,
+- Header : null
+- Body :
+```json
+{ 
+    "idProduk":"number",
+    "Status":"bolean",
+    "user_id" :"String"
+}
+
+```
+
+Response :
+
+```json
+    {
+        "data":null,
+        "meta": {
+            "code": "number",
+            "message": "string",
+            "status": "string"
+        }
+    }
+```
