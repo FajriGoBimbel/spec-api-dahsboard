@@ -879,6 +879,33 @@ Response :
   }
 }
 ```
+
+### get gedung by kota
+
+Request
+
+- Method : Get
+- Endpoint : `api/v1/gokasir/list/gedung?kota={}`
+- Body :
+
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdGedung": "825",
+      "NamaGedung": "LETJEN. SUPRAPTO 22"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
 ## Get Gedung Detail
 Request :
 
@@ -904,6 +931,7 @@ Response :
   }
 }
 ```
+
 ### Get Jenis Paket
 Request :
 
@@ -955,3 +983,5 @@ Response :
   }
 }
 ```
+
+
