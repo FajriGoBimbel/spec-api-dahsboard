@@ -2,8 +2,8 @@
 
 ## Opsi
 
-### GET LIST MATA PELAJARAN
-
+### GET LIST MATA PELAJARAN 
+keterangan: ada di Smba bagian(Bab, Wacana,mengisi soal,verifikasi soal,mengisi teori)
 Request :
 
 - Method : GET
@@ -67,7 +67,7 @@ Response :
 }
 ```
 ### GET LIST KURIKULUM
-
+keterangan: ada di Smba bagian(silabus, membuat buku, membuat bah)
 Request :
 
 - Method : GET
@@ -138,7 +138,7 @@ Response :
 
 
 ### GET LIST BAB
-
+keterangan: ada di Smba bagian(mengisi soal,verifikasi soal)
 Request :
 
 - Method : GET
@@ -219,7 +219,7 @@ Response :
 
 
 ### GET TAHUN AJARAN
-
+keterangan: ada di Smba bagian(silabus, set target, membuat paket dan bundel, membuat buku, membuat bah, menautkan Bah,Monitoring BAH-kelas, Membuat TOB,Membuat Video Ekstra,JPMP, JPMP Kelas & verifikasinya)
 Request :
 
 - Method : GET
@@ -273,7 +273,7 @@ Request :
 
 
 ### GET TINGKAT KELAS
-
+keterangan: ada di Smba bagian(silabus, set target, membuat paket dan bundel, membuat buku, buku teaser, membuat bah,Menautkan Bah Kelas,membuat Paket Soal Teaser, membuat video teaser, membuat video teaser,JPMP,JPMP Kelas & verifikasinya)
 Request :
 
 - Method : GET
@@ -327,7 +327,7 @@ Request :
 
 
 ### GET Layanan/JENIS KELAS
-
+keterangan: ada di Smba bagian(silabus, membuat bah,Membuat video ekstra)
 Request :
 
 - Method : GET
@@ -381,7 +381,7 @@ Request :
 ```
 
 ### GET KELOMPOK UJIAN
-
+keterangan: ada di Smba bagian(silabus, membuat bundel, membuat bah, menautkan Bah,Kunci Jawaban)
 Request :
 
 - Method : GET
@@ -407,6 +407,32 @@ Request :
 }
 ```
 
+### GET JENIS SUMBER SOAL
+keterangan: ada di Smba bagian(Sumber Soal)
+Request :
+
+- Method : GET
+- Endpoint : `/api/v1/jenissumbersoal`,
+- Header : null
+- Body : null
+
+- Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "string, unique",
+      "nama": "string"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
 ### GET KELOMPOK UJIAN Detail
 
 Request :
@@ -585,7 +611,7 @@ Response :
 ```
 
 ### GET Peruntukan
-
+keterangan: ada di Smba bagian(membuat bundel)
 Request :
 
 - Method : GET
@@ -640,7 +666,7 @@ Response :
 
 
 ### GET JENIS PRODUK
-
+keterangan: ada di Smba bagian(membuat paket, Kunci Jawaban)
 Request :
 
 - Method : GET
@@ -749,7 +775,8 @@ Response :
 
 
 
-## Get Penanda
+## Get Penanda/Kota
+keterangan: ada di Smba bagian(Menautkan Bah Kelas,Monitoring BAH-kelas, jpmp kelas & verifikasinya)
 Request :
 
 - Method : GET
@@ -802,6 +829,7 @@ Response :
 }
 ```
 ## Get Zona
+keterangan: ada di Smba bagian(jpmp kelas & verifikasinya)
 Request :
 
 - Method : GET
@@ -854,6 +882,7 @@ Response :
 }
 ```
 ## Get Gedung
+keterangan: ada di Smba bagian( jpmp kelas & verifikasinya)
 Request :
 
 - Method : GET
@@ -881,7 +910,7 @@ Response :
 ```
 
 ### get gedung by kota
-
+keterangan: ada di Smba bagian(Menautkan Bah Kelas,Monitoring BAH-kelas)
 Request
 
 - Method : Get
@@ -959,6 +988,7 @@ Response :
 }
 ```
 ### Get kode paket
+keterangan: di smba ( Kunci Jawaban)
 Request :
 
 - Method : GET
@@ -1133,7 +1163,7 @@ Response
 ```
 
 ### Get Kelas
-
+keterangan: ada di Smba bagian(Menautkan Bah Kelas)
 Request
 
 - Method : GET
@@ -1207,7 +1237,7 @@ Response :
 }
 ```
 ### get jenis 
-
+keterangan: ada di Smba bagian( membuat buku,Membuat TOB)
 Request :
 
 - Method : GET
