@@ -612,45 +612,45 @@ Response :
 ```json
 {
   "data": [
-        {
-            "nomorInvoice": "0093230923143303",
-            "tanggalDatang": "2023-09-23",
-            "idGedungDatang": "unique",
-            "noRegistrasi": "number",
-            "namaLengkap": "string",
-            "hp": "number",
-            "idSekolah": "unique",
-            "jenjangPendidikan": "string",
-            "idGedungBelajar": "unique",
-            "tahunAjaran": "string",
-            "idSekolahKelas": "unique",
-            "namaSekolahKelas": "string",
-            "idKelas": "unique",
-            "caraBayar": "",
-            "idBundling": "unique",
-            "namaBundling": "string",
-            "hargaPT": "number",
-            "hargaJual": "number",
-            "totalBayar": "number",
-            "kodeUnik": "unique",
-            "nomorVA": "number",
-            "tanggalExpired": "2023-09-30",
-            "nominalBayar": "number",
-            "tanggalDigunakan": null,
-            "status": "enum",
-            "created_at": "2023-09-14 09:42:40",
-            "updated_at": "2022-06-13 22:12:54"
-        },
-    ],
-    "metadata": {
-        "total_count": "number",
-        "page_count": "number",
-        "page": "number",
-        "per_page": "number",
-        "sort": "desc",
-        "order_by": "created_at",
-        "keyword": "string"
+    {
+      "nomorInvoice": "0093230923143303",
+      "tanggalDatang": "2023-09-23",
+      "idGedungDatang": "unique",
+      "noRegistrasi": "number",
+      "namaLengkap": "string",
+      "hp": "number",
+      "idSekolah": "unique",
+      "jenjangPendidikan": "string",
+      "idGedungBelajar": "unique",
+      "tahunAjaran": "string",
+      "idSekolahKelas": "unique",
+      "namaSekolahKelas": "string",
+      "idKelas": "unique",
+      "caraBayar": "",
+      "idBundling": "unique",
+      "namaBundling": "string",
+      "hargaPT": "number",
+      "hargaJual": "number",
+      "totalBayar": "number",
+      "kodeUnik": "unique",
+      "nomorVA": "number",
+      "tanggalExpired": "2023-09-30",
+      "nominalBayar": "number",
+      "tanggalDigunakan": null,
+      "status": "enum",
+      "created_at": "2023-09-14 09:42:40",
+      "updated_at": "2022-06-13 22:12:54"
     }
+  ],
+  "metadata": {
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "desc",
+    "order_by": "created_at",
+    "keyword": "string"
+  }
 }
 ```
 
@@ -668,29 +668,29 @@ Response :
 ```json
 {
   "data": [
-        {
-          "NoRegistrasi": "unique",
-          "NamaLengkap": "string",
-          "JenisKelamin": "enum",
-          "TanggalLahir": "2006-10-14",
-          "alamat": "string",
-          "tlp": "number",
-          "hp": "number",
-          "hp2": "number",
-          "email": "jasminechrisna14@gmail.com",
-          "email2": "jasminechrisna14@gmail.com",
-          "agama": "enum",
-          "ibuKandung": "string",
-          "isSiswa": "boolean",
-          "status": "enum"  
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "NoRegistrasi": "unique",
+      "NamaLengkap": "string",
+      "JenisKelamin": "enum",
+      "TanggalLahir": "2006-10-14",
+      "alamat": "string",
+      "tlp": "number",
+      "hp": "number",
+      "hp2": "number",
+      "email": "jasminechrisna14@gmail.com",
+      "email2": "jasminechrisna14@gmail.com",
+      "agama": "enum",
+      "ibuKandung": "string",
+      "isSiswa": "boolean",
+      "status": "enum"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -708,44 +708,44 @@ Response :
 ```json
 {
   "data": [
-        {
-          "noregistrasi": "unique",
-          "namalengkap": "string",
-          "namapanggilan": "string",
-          "provinsikelahiran": "unique",
-          "namaprovinsikelahiran": "string",
-          "kotakelahiran": "unique",
-          "namakotakelahiran": "string",
-          "jeniskelamin": "enum",
-          "tanggallahir": "2006-10-14",
-          "namaibukandung": "string",
-          "pekerjaanortu": "string",
-          "agama": "enum",
-          "golongandarah": null,
-          "alamat": "Perumahan Griya Asri 2, Jl. Flamboyan Blok J26 no.48 Rt 08/Rw 40 \n",
-          "provinsialamat": "12",
-          "namaprovinsialamat": "PROVINSI JAWA BARAT",
-          "kotaalamat": "156",
-          "namakotaalamat": "KABUPATEN BEKASI",
-          "kecamatanalamat": "313",
-          "kelurahan": "2664",
-          "kodepos": "17510",
-          "statuskepemilikan": null,
-          "notlp": null,
-          "nohpsiswa": "089613312329",
-          "nohportu": "081213009680",
-          "emailsiswa": "jihanoktavia14@gmail.com",
-          "emailortu": "sn418103@gmail.com",
-          "status": "Aktif",
-          "hubungan": "Ayah"  
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "noregistrasi": "unique",
+      "namalengkap": "string",
+      "namapanggilan": "string",
+      "provinsikelahiran": "unique",
+      "namaprovinsikelahiran": "string",
+      "kotakelahiran": "unique",
+      "namakotakelahiran": "string",
+      "jeniskelamin": "enum",
+      "tanggallahir": "2006-10-14",
+      "namaibukandung": "string",
+      "pekerjaanortu": "string",
+      "agama": "enum",
+      "golongandarah": null,
+      "alamat": "Perumahan Griya Asri 2, Jl. Flamboyan Blok J26 no.48 Rt 08/Rw 40 \n",
+      "provinsialamat": "12",
+      "namaprovinsialamat": "PROVINSI JAWA BARAT",
+      "kotaalamat": "156",
+      "namakotaalamat": "KABUPATEN BEKASI",
+      "kecamatanalamat": "313",
+      "kelurahan": "2664",
+      "kodepos": "17510",
+      "statuskepemilikan": null,
+      "notlp": null,
+      "nohpsiswa": "089613312329",
+      "nohportu": "081213009680",
+      "emailsiswa": "jihanoktavia14@gmail.com",
+      "emailortu": "sn418103@gmail.com",
+      "status": "Aktif",
+      "hubungan": "Ayah"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -763,22 +763,22 @@ Response :
 ```json
 {
   "data": [
-        {
-          "idIdentitas": "55234",
-          "jenisKartuIdentitas": "KTP",
-          "image_kartu_identitas": "string",
-          "idProvinsi": "1",
-          "provinsi": "PROVINSI ACEH",
-          "idKota": "1",
-          "kota": "KABUPATEN ACEH BARAT"
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "idIdentitas": "55234",
+      "jenisKartuIdentitas": "KTP",
+      "image_kartu_identitas": "string",
+      "idProvinsi": "1",
+      "provinsi": "PROVINSI ACEH",
+      "idKota": "1",
+      "kota": "KABUPATEN ACEH BARAT"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -796,21 +796,21 @@ Response :
 ```json
 {
   "data": [
-        {
-          "idBiodataSaudara": "529",
-          "noRegistrasi": "61014004401",
-          "hubungan": "KAKAK",
-          "nama": "jamal",
-          "tanggalLahir": "2023-11-14",
-          "umur": "0 Thn"  
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "idBiodataSaudara": "529",
+      "noRegistrasi": "61014004401",
+      "hubungan": "KAKAK",
+      "nama": "jamal",
+      "tanggalLahir": "2023-11-14",
+      "umur": "0 Thn"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -828,44 +828,44 @@ Response :
 ```json
 {
   "data": [
-        {
-          "noregistrasi": "unique",
-          "namalengkap": "string",
-          "namapanggilan": "string",
-          "provinsikelahiran": "unique",
-          "namaprovinsikelahiran": "string",
-          "kotakelahiran": "unique",
-          "namakotakelahiran": "string",
-          "jeniskelamin": "enum",
-          "tanggallahir": "2006-10-14",
-          "namaibukandung": "string",
-          "pekerjaanortu": "string",
-          "agama": "enum",
-          "golongandarah": null,
-          "alamat": "Perumahan Griya Asri 2, Jl. Flamboyan Blok J26 no.48 Rt 08/Rw 40 \n",
-          "provinsialamat": "12",
-          "namaprovinsialamat": "PROVINSI JAWA BARAT",
-          "kotaalamat": "156",
-          "namakotaalamat": "KABUPATEN BEKASI",
-          "kecamatanalamat": "313",
-          "kelurahan": "2664",
-          "kodepos": "17510",
-          "statuskepemilikan": null,
-          "notlp": null,
-          "nohpsiswa": "089613312329",
-          "nohportu": "081213009680",
-          "emailsiswa": "jihanoktavia14@gmail.com",
-          "emailortu": "sn418103@gmail.com",
-          "status": "Aktif",
-          "hubungan": "Ayah"
-        }
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "noregistrasi": "unique",
+      "namalengkap": "string",
+      "namapanggilan": "string",
+      "provinsikelahiran": "unique",
+      "namaprovinsikelahiran": "string",
+      "kotakelahiran": "unique",
+      "namakotakelahiran": "string",
+      "jeniskelamin": "enum",
+      "tanggallahir": "2006-10-14",
+      "namaibukandung": "string",
+      "pekerjaanortu": "string",
+      "agama": "enum",
+      "golongandarah": null,
+      "alamat": "Perumahan Griya Asri 2, Jl. Flamboyan Blok J26 no.48 Rt 08/Rw 40 \n",
+      "provinsialamat": "12",
+      "namaprovinsialamat": "PROVINSI JAWA BARAT",
+      "kotaalamat": "156",
+      "namakotaalamat": "KABUPATEN BEKASI",
+      "kecamatanalamat": "313",
+      "kelurahan": "2664",
+      "kodepos": "17510",
+      "statuskepemilikan": null,
+      "notlp": null,
+      "nohpsiswa": "089613312329",
+      "nohportu": "081213009680",
+      "emailsiswa": "jihanoktavia14@gmail.com",
+      "emailortu": "sn418103@gmail.com",
+      "status": "Aktif",
+      "hubungan": "Ayah"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -883,19 +883,19 @@ Response :
 ```json
 {
   "data": [
-        {
-          "jenis_kartu_identitas": "string",
-          "idprovinsi": "unique",
-          "idkota": "unique", //generate dari tanggal lahir
-          "image_kartu_identitas": "string"
-        }
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "jenis_kartu_identitas": "string",
+      "idprovinsi": "unique",
+      "idkota": "unique", //generate dari tanggal lahir
+      "image_kartu_identitas": "string"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -913,19 +913,19 @@ Response :
 ```json
 {
   "data": [
-        {
-          "nama": "string",
-          "tanggallahir": "2006-10-14",
-          "umur": "number", //generate dari tanggal lahir
-          "hubungan": "Ayah"
-        }
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "nama": "string",
+      "tanggallahir": "2006-10-14",
+      "umur": "number", //generate dari tanggal lahir
+      "hubungan": "Ayah"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -942,11 +942,11 @@ Response :
 
 ```json
 {
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
-    }
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
 
@@ -963,14 +963,13 @@ Response :
 
 ```json
 {
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
-    }
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
-
 
 ### Pembayaran Artikel
 
@@ -988,97 +987,96 @@ Response :
 ```json
 {
   "data": [
+    {
+      "nomorInvoice": "0002231003103926",
+      "tanggalDatang": "2023-10-03",
+      "idGedungDatang": "1147",
+      "noRegistrasi": "051231114789",
+      "namaLengkap": "uji coba keuangan",
+      "hp": "08112385459",
+      "hpOrtu": "08112385459",
+      "email": "tiaraayunda373@gmai.com",
+      "emailOrtu": "tiara@gmail.com",
+      "idSekolah": "392716",
+      "namaSekolah": "HOMESCHOOLING MILENIAL UNGGUL",
+      "jenjangPendidikan": "SMA",
+      "idGedungBelajar": "2",
+      "tahunAjaran": "2023/2024",
+      "idSekolahKelas": "14",
+      "namaSekolahKelas": "12 SMA IPA",
+      "idKelas": "269738",
+      "caraBayar": "",
+      "jenisBayar": "",
+      "idBundling": "766519",
+      "namaBundling": "TWT 12 SMA IPA K13R 4P 23/24",
+      "produk": {
+        "data": [
+          {
+            "id": 32664,
+            "nama": "23_e- Buku Sakti Empati Mandiri 12 SMA IPA K13R"
+          }
+        ],
+        "hargapt": 200000,
+        "hargajual": 9500000,
+        "hargaproduk": 9700000
+      },
+      "Diskon": {
+        "data": [
+          {
+            "id": "22767683",
+            "nama": "Diskon Anak Kandung Guru_",
+            "ispart": "1",
+            "relatif": "Y",
+            "diskonrp": 0,
+            "issyarat": "1",
+            "kelompok": "Diskon Anak Kandung Guru",
+            "tglakhir": "2024-06-30",
+            "diskonrpacc": 4750000,
+            "diskonpersen": 50,
+            "idjenisdiskon": "810"
+          }
+        ],
+        "diskonlunas": 0,
+        "totaldiskon": 0,
+        "iddiskonlunas": 0,
+        "totaldiskonpt": 0,
+        "totaldiskonjual": 0,
+        "idjenisdiskonlunas": "",
+        "ispersendiskonlunas": false
+      },
+      "totalBayar": "9700000",
+      "kodeUnik": "0",
+      "totalYangDiBayarkan": "9700000",
+      "skemaCicilan": [
         {
-          "nomorInvoice": "0002231003103926",
-          "tanggalDatang": "2023-10-03",
-          "idGedungDatang": "1147",
-          "noRegistrasi": "051231114789",
-          "namaLengkap": "uji coba keuangan",
-          "hp": "08112385459",
-          "hpOrtu": "08112385459",
-          "email": "tiaraayunda373@gmai.com",
-          "emailOrtu": "tiara@gmail.com",
-          "idSekolah": "392716",
-          "namaSekolah": "HOMESCHOOLING MILENIAL UNGGUL",
-          "jenjangPendidikan": "SMA",
-          "idGedungBelajar": "2",
-          "tahunAjaran": "2023/2024",
-          "idSekolahKelas": "14",
-          "namaSekolahKelas": "12 SMA IPA",
-          "idKelas": "269738",
-          "caraBayar": "",
-          "jenisBayar": "",
-          "idBundling": "766519",
-          "namaBundling": "TWT 12 SMA IPA K13R 4P 23/24",
-          "produk": {
-              "data": [
-                  {
-                      "id": 32664,
-                      "nama": "23_e- Buku Sakti Empati Mandiri 12 SMA IPA K13R"
-                  },
-              ],
-              "hargapt": 200000,
-              "hargajual": 9500000,
-              "hargaproduk": 9700000
-          },
-          "c_Diskon": {
-              "data": [
-                  {
-                      "id": "22767683",
-                      "nama": "Diskon Anak Kandung Guru_",
-                      "ispart": "1",
-                      "relatif": "Y",
-                      "diskonrp": 0,
-                      "issyarat": "1",
-                      "kelompok": "Diskon Anak Kandung Guru",
-                      "tglakhir": "2024-06-30",
-                      "diskonrpacc": 4750000,
-                      "diskonpersen": 50,
-                      "idjenisdiskon": "810"
-                  }
-              ],
-              "diskonlunas": 0,
-              "totaldiskon": 0,
-              "iddiskonlunas": 0,
-              "totaldiskonpt": 0,
-              "totaldiskonjual": 0,
-              "idjenisdiskonlunas": "",
-              "ispersendiskonlunas": false
-          },
-          "totalBayar": "9700000",
-          "kodeUnik": "0",
-          "totalYangDiBayarkan": "9700000",
-          "skemaCicilan": [
-              {
-                  "jumlah": 200000,
-                  "cicilanke": 0,
-                  "jumlahacc": 200000,
-                  "jatuhtempo": "2023-10-03",
-                  "keterangan": "Pendaftaran"
-              },
-          ],
-          "idPola": "number",
-          "polaCicilan": {
-              "1": 50,
-              "2": 30,
-              "3": 20
-          },
-          "tanggalExpired": "2023-10-10",
-          "status": "enum",
-          "idPembelian": "unique",
-          "hargaSebelum": "number",
-          "hargaPenyesuaian": "number"
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+          "jumlah": 200000,
+          "cicilanke": 0,
+          "jumlahacc": 200000,
+          "jatuhtempo": "2023-10-03",
+          "keterangan": "Pendaftaran"
+        }
+      ],
+      "idPola": "number",
+      "polaCicilan": {
+        "1": 50,
+        "2": 30,
+        "3": 20
+      },
+      "tanggalExpired": "2023-10-10",
+      "status": "enum",
+      "idPembelian": "unique",
+      "hargaSebelum": "number",
+      "hargaPenyesuaian": "number"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
-
 
 #### Get Datatabel Nomor Invoice Pembayaran Artikel
 
@@ -1094,31 +1092,30 @@ Response :
 ```json
 {
   "data": [
-        {
-          "NomorInvoice": "0002231111180527",
-          "NoRegistrasi": "051231114785",
-          "TanggalLahir": "2005-12-31",
-          "TanggalDatang": "2023-11-11",
-          "Status": "Belum",
-          "NamaLengkap": "Uji Coba Keuangan 4",
-          "GedungDatang": "BANDUNG - PW 34",
-          "GedungBelajar": "BANDUNG - PW 36-B",
-          "NamaBundling": "TWT 12 SMA IPA K13R 4P 23/24"
-        },
-    ],
-
-    "metadata": {
-        "total_count": "number",
-        "page_count": "number",
-        "page": "number",
-        "per_page": "number",
-        "sort": "desc",
-        "order_by": "created_at",
-        "keyword": "string"
+    {
+      "NomorInvoice": "0002231111180527",
+      "NoRegistrasi": "051231114785",
+      "TanggalLahir": "2005-12-31",
+      "TanggalDatang": "2023-11-11",
+      "Status": "Belum",
+      "NamaLengkap": "Uji Coba Keuangan 4",
+      "GedungDatang": "BANDUNG - PW 34",
+      "GedungBelajar": "BANDUNG - PW 36-B",
+      "NamaBundling": "TWT 12 SMA IPA K13R 4P 23/24"
     }
+  ],
+
+  "metadata": {
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "desc",
+    "order_by": "created_at",
+    "keyword": "string"
+  }
 }
 ```
-
 
 ## Dokument Diskon
 
@@ -1138,35 +1135,34 @@ Response :
 ```json
 {
   "data": [
-        {
-            "idPembelian": "unique",
-            "namaGedung": "PW 36-B",
-            "noRegistrasi": "060514000201",
-            "nomorInvoice": "0002231003161146",
-            "namaLengkap": "ADELYA SELFI LISYANA",
-            "namaKelas": "12-IPS-R-N-102",
-            "namaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
-            "statusAjuan": "enum",
-            "tglbayarpertama": "2023-10-03",
-            "lamabayarpertama": 42,
-            "tanggalTerakhirUnggah": "-",
-            "action": "Lihat Ajuan",
-            "created_at": "2023-09-14 09:42:40",
-            "updated_at": "2022-06-13 22:12:54"
-        },
-    ],
-    "metadata": {
-        "total_count": "number",
-        "page_count": "number",
-        "page": "number",
-        "per_page": "number",
-        "sort": "desc",
-        "order_by": "created_at",
-        "keyword": "string"
+    {
+      "idPembelian": "unique",
+      "namaGedung": "PW 36-B",
+      "noRegistrasi": "060514000201",
+      "nomorInvoice": "0002231003161146",
+      "namaLengkap": "ADELYA SELFI LISYANA",
+      "namaKelas": "12-IPS-R-N-102",
+      "namaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
+      "statusAjuan": "enum",
+      "tglbayarpertama": "2023-10-03",
+      "lamabayarpertama": 42,
+      "tanggalTerakhirUnggah": "-",
+      "action": "Lihat Ajuan",
+      "created_at": "2023-09-14 09:42:40",
+      "updated_at": "2022-06-13 22:12:54"
     }
+  ],
+  "metadata": {
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "desc",
+    "order_by": "created_at",
+    "keyword": "string"
+  }
 }
 ```
-
 
 #### Get Diskon Unggah Dokument Diskon
 
@@ -1182,25 +1178,24 @@ Response :
 ```json
 {
   "data": [
-        {
-          "idAmbilDiskon": "unique",
-          "ajuanDiskon": "Diskon Pemuda 5%_",
-          "keterangan": "string",
-          "isNeedDocument": "boolean",
-          "tanggalUnggah": null,
-          "dokumenDiskon": null,
-          "status": "enum"
-        },
-    ],
-
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "idAmbilDiskon": "unique",
+      "ajuanDiskon": "Diskon Pemuda 5%_",
+      "keterangan": "string",
+      "isNeedDocument": "boolean",
+      "tanggalUnggah": null,
+      "dokumenDiskon": null,
+      "status": "enum"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
-
 
 ### Validasi Dokument Diskon
 
@@ -1218,35 +1213,34 @@ Response :
 ```json
 {
   "data": [
-        {
-            "idPembelian": "unique",
-            "namaGedung": "PW 36-B",
-            "noRegistrasi": "060514000201",
-            "nomorInvoice": "0002231003161146",
-            "namaLengkap": "ADELYA SELFI LISYANA",
-            "namaKelas": "12-IPS-R-N-102",
-            "namaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
-            "statusAjuan": "enum",
-            "tglbayarpertama": "2023-10-03",
-            "lamabayarpertama": 42,
-            "tanggalTerakhirUnggah": "-",
-            "action": "Lihat Ajuan",
-            "created_at": "2023-09-14 09:42:40",
-            "updated_at": "2022-06-13 22:12:54"
-        },
-    ],
-    "metadata": {
-        "total_count": "number",
-        "page_count": "number",
-        "page": "number",
-        "per_page": "number",
-        "sort": "desc",
-        "order_by": "created_at",
-        "keyword": "string"
+    {
+      "idPembelian": "unique",
+      "namaGedung": "PW 36-B",
+      "noRegistrasi": "060514000201",
+      "nomorInvoice": "0002231003161146",
+      "namaLengkap": "ADELYA SELFI LISYANA",
+      "namaKelas": "12-IPS-R-N-102",
+      "namaBundling": "TWT 12 SMA IPS K13R 4P 23/24",
+      "statusAjuan": "enum",
+      "tglbayarpertama": "2023-10-03",
+      "lamabayarpertama": 42,
+      "tanggalTerakhirUnggah": "-",
+      "action": "Lihat Ajuan",
+      "created_at": "2023-09-14 09:42:40",
+      "updated_at": "2022-06-13 22:12:54"
     }
+  ],
+  "metadata": {
+    "total_count": "number",
+    "page_count": "number",
+    "page": "number",
+    "per_page": "number",
+    "sort": "desc",
+    "order_by": "created_at",
+    "keyword": "string"
+  }
 }
 ```
-
 
 #### Get Detail Validasi Dokument Diskon (Skema Pembayaran)
 
@@ -1262,26 +1256,25 @@ Response :
 ```json
 {
   "data": [
-        {
-          "id": "8711535",
-          "jumlah": "200000",
-          "keterangan": "PENDF.",
-          "cicilanke": "0",
-          "jatuhtempo": "2023-06-07",
-          "sudahbayar": "200000",
-          "created_at": "2023-09-14 09:42:40",
-          "updated_at": "2022-06-13 22:12:54"
-        },
-    ],
-    
-    "meta": {
-        "code": "number",
-        "message": "string",
-        "status": "string"
+    {
+      "id": "8711535",
+      "jumlah": "200000",
+      "keterangan": "PENDF.",
+      "cicilanke": "0",
+      "jatuhtempo": "2023-06-07",
+      "sudahbayar": "200000",
+      "created_at": "2023-09-14 09:42:40",
+      "updated_at": "2022-06-13 22:12:54"
     }
+  ],
+
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
 }
 ```
-
 
 #### Get Detail Validasi Dokument Diskon (Diskon)
 
@@ -1319,7 +1312,7 @@ Response :
           "updated_at": "2022-06-13 22:12:54"
         },
     ],
-    
+
     "meta": {
         "code": "number",
         "message": "string",
@@ -1327,7 +1320,6 @@ Response :
     }
 }
 ```
-
 
 ## BASTUP
 
@@ -2338,7 +2330,6 @@ Response :
 }
 ```
 
-
 ## Bimker
 
 ### DAFTAR BIMKER
@@ -3121,6 +3112,201 @@ Response :
       "LastUpdate": "2023-10-02 13:40:06"
     }
   ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get pembayaran bimker detail
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/pembayaranbimker/getinfobayar`
+- Body :
+
+```json
+{
+  "idKerjasama": 733
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "Total": "72000000",
+      "Bayar": "72000000",
+      "Sisa": "0"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get metode bayar
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/metodebayar`
+- Body :
+
+```json
+{
+  "jenis": "EDC"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "INSTALLMENT 3 BULAN",
+      "name": "INSTALLMENT 3 BULAN"
+    },
+    {
+      "id": "INSTALLMENT 6 BULAN",
+      "name": "INSTALLMENT 6 BULAN"
+    },
+    {
+      "id": "KARTU DEBIT",
+      "name": "KARTU DEBIT"
+    },
+    {
+      "id": "KARTU KREDIT",
+      "name": "KARTU KREDIT"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list bank
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/bank`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdBank": "5",
+      "NamaBank": "BSI"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list jenis bayar
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/jenisbayar`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "Virtual Account",
+      "name": "Virtual Account"
+    },
+    {
+      "id": "Antar Rekening",
+      "name": "Antar Rekening"
+    },
+    {
+      "id": "EDC",
+      "name": "EDC"
+    },
+    {
+      "id": "Website",
+      "name": "Website"
+    },
+    {
+      "id": "Payment Link",
+      "name": "Payment Link"
+    },
+    {
+      "id": "CASH",
+      "name": "CASH"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list rekening bank go
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/rekeningbank`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NoRekening": "7772360608",
+      "IdBank": "5",
+      "NamaBank": "BSI",
+      "id": "7772360608",
+      "name": "BSI - 7772360608"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get list edc
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/edc`
+
+Response :
+
+```json
+{
+  "data": [],
   "meta": {
     "code": "number",
     "message": "string",
