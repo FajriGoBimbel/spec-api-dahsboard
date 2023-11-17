@@ -375,7 +375,7 @@ Request :
 
 ```json
 
-// add
+// add zona harus ada gedung 1:1
 {
   "IdZona": 911,
   "NamaZona": "ZONA TEST 3",
@@ -384,7 +384,8 @@ Request :
 }
 
 // edit zona
-// hapus gedung dari zona
+// bisa nambah gedung
+// bisa hapus gedung dari zona
 {
   "IdZona": 911,
   "NamaZona": "ZONA TEST 3 EDIT",
@@ -402,6 +403,92 @@ Response :
 
 ```json
 {
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Petugas
+
+#### get petugas
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/idpp/petugas/get`
+- Body :
+
+```json
+{
+  "IdPenanda": "6",
+  "IdZona": "31"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NIK": "0902500170",
+      "NamaLengkap": "AGITYA PUTRA KUSUMA",
+      "IdJenisPetugas": 5,
+      "Username": "0902500170",
+      "Password": "23baf8622a8af9f2e23cd40cdf6d7b9e",
+      "Verifikasi": "T",
+      "StatusLogin": "F",
+      "JumlahHariBuka": "15",
+      "JumlahHariDepanBuka": "0",
+      "TanggalAwalTutup": "2020-01-01",
+      "TanggalAkhirTutup": "2020-05-01",
+      "Menu": "[5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 44, 45, 58]",
+      "IdZona": 31,
+      "NamaZona": "Surakarta Zona 1",
+      "IdPenanda": 6,
+      "Penanda": "SURAKARTA",
+      "IdGedung": 315,
+      "NamaGedung": "BHAYANGKARA 40A",
+      "NamaJenisPetugas": "Petugas Pembuat Jadwal (PPJ)",
+      "IdPenandaZona": 6,
+      "NamaPenandaZona": "SURAKARTA"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get petugas per gedung
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/idpp/list/petugasPerGedung`
+- Body :
+
+```json
+{
+  "IdGedung": "315"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "NIK": "2018166067",
+      "NIKNama": "2018166067 Anggi Fajar Setyawan (KR)"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
