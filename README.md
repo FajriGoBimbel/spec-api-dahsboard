@@ -3153,74 +3153,6 @@ Response :
 }
 ```
 
-#### get metode bayar
-
-Request :
-
-- Method : POST
-- Endpoint : `api/v1/gokasir/list/metodebayar`
-- Body :
-
-```json
-{
-  "jenis": "EDC"
-}
-```
-
-Response :
-
-```json
-{
-  "data": [
-    {
-      "id": "INSTALLMENT 3 BULAN",
-      "name": "INSTALLMENT 3 BULAN"
-    },
-    {
-      "id": "INSTALLMENT 6 BULAN",
-      "name": "INSTALLMENT 6 BULAN"
-    },
-    {
-      "id": "KARTU DEBIT",
-      "name": "KARTU DEBIT"
-    },
-    {
-      "id": "KARTU KREDIT",
-      "name": "KARTU KREDIT"
-    }
-  ],
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
-
-#### get list bank
-
-Request :
-
-- Method : POST
-- Endpoint : `api/v1/gokasir/list/bank`
-
-Response :
-
-```json
-{
-  "data": [
-    {
-      "IdBank": "5",
-      "NamaBank": "BSI"
-    }
-  ],
-  "meta": {
-    "code": "number",
-    "message": "string",
-    "status": "string"
-  }
-}
-```
 
 #### get list jenis bayar
 
@@ -3273,6 +3205,12 @@ Request :
 
 - Method : POST
 - Endpoint : `api/v1/gokasir/list/rekeningbank`
+- Body :
+
+```json
+{
+  "gedung":"1147"
+}```
 
 Response :
 
@@ -3307,6 +3245,50 @@ Response :
 ```json
 {
   "data": [],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get metode bayar
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/gokasir/list/metodebayar`
+- Body :
+
+```json
+{
+  "jenis": "EDC"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "id": "INSTALLMENT 3 BULAN",
+      "name": "INSTALLMENT 3 BULAN"
+    },
+    {
+      "id": "INSTALLMENT 6 BULAN",
+      "name": "INSTALLMENT 6 BULAN"
+    },
+    {
+      "id": "KARTU DEBIT",
+      "name": "KARTU DEBIT"
+    },
+    {
+      "id": "KARTU KREDIT",
+      "name": "KARTU KREDIT"
+    }
+  ],
   "meta": {
     "code": "number",
     "message": "string",
