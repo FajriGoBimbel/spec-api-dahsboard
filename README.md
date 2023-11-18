@@ -837,3 +837,178 @@ Response :
   ]
 }
 ```
+
+#### get kode silabus
+
+Response :
+
+- Method : POST
+- Endpoint : `api/v1/idpp/list/kodesilabus`
+- Body :
+
+```json
+{
+  "Pelajaran": "9",
+  "Semester": "1",
+  "JumlahPertemuan": 0,
+  "KelompokSekolah": "SMP",
+  "TingkatKelas": "9",
+  "JenisLayanan": "SILVER"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [{}],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### buat silabus
+
+Request:
+
+### Import Silabus
+
+#### get import silabus
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/idpp/importsilabus/get?sortby=${KodeSilabus|TingkatKelas|KelompokSekolah|Jurusan|JenisLayanan|Kurikulum|IdPelajaran|NamaPelajaran|Pertemuan|Semester|PertemuanKe|PaketKe|Uraian|JPPerMinggu}&sort=${asc|desc}&page=${page}&limit=${limit}`
+- Body :
+
+```json
+{
+  "tingkat": "9",
+  "namatingkat": "9 SMP UMUM",
+  "pelajaran": "9",
+  "semester": "1"
+}
+```
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdSilabus": 474254,
+      "KodeSilabus": "9SMPUMUMGOLDK13 REV91114SIMULASI PAS 1 6EKONOMI1",
+      "TingkatKelas": 9,
+      "KelompokSekolah": "SMP",
+      "Jurusan": "UMUM",
+      "JenisLayanan": "GOLD",
+      "Kurikulum": "K13 REV",
+      "IdPelajaran": 9,
+      "NamaPelajaran": "EKONOMI",
+      "Pertemuan": 1,
+      "Semester": 1,
+      "PertemuanKe": 1,
+      "PaketKe": "14",
+      "Uraian": "SIMULASI PAS 1",
+      "LastUpdate": "2022-07-12 14:29:43",
+      "JPPerMinggu": 6,
+      "Pelajaran": "EKONOMI",
+      "IsBaru": ""
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
+
+#### download template import silabus
+
+Request :
+
+- Method : GET
+- Endpoint : `api/v1/idpp/importsilabus/templateimport`
+
+Response :
+
+```json
+{
+  "data": "file template import silabus",
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+### Kelompok Pengajar
+
+#### get mata uji
+
+Request
+
+- Method : POST
+- Endpoint : `api/v1/idpp/list/matauji`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKelompokUjian": 103,
+      "NamaKelompokUjian": "AKM LITERASI"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  }
+}
+```
+
+#### get kelompok pengajar
+
+Request :
+
+- Method : POST
+- Endpoint : `api/v1/idpp/kelompokpengajar/get?sortby=${NamaKelompok|TotalAnggota|Status}&sort=${asc|desc}&page=${page}&limit=${limit}`
+
+Response :
+
+```json
+{
+  "data": [
+    {
+      "IdKelompok": 788,
+      "NamaKelompok": "10 IPA-BIO-S_1_2324-K13R",
+      "TotalAnggota": 560,
+      "Status": "Aktif"
+    }
+  ],
+  "meta": {
+    "code": "number",
+    "message": "string",
+    "status": "string"
+  },
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalData": 2,
+    "totalPage": 1
+  }
+}
+```
